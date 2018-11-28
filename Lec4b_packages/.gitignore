@@ -1,0 +1,9 @@
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.pdf
+*.aux
+rpack_withnotes.tex

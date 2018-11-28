@@ -1,0 +1,614 @@
+\documentclass[12pt,t]{beamer}
+\usepackage{graphicx}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\usepackage{listings}
+
+\input{header.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Writing R packages}
+\subtitle{Tools for Reproducible Research}
+\author{\href{http://kbroman.org}{Karl Broman}}
+\institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
+\date{\href{http://kbroman.org}{\tt \scriptsize \color{foreground} kbroman.org}
+\\[-4pt]
+\href{http://github.com/kbroman}{\tt \scriptsize \color{foreground} github.com/kbroman}
+\\[-4pt]
+\href{https://twitter.com/kwbroman}{\tt \scriptsize \color{foreground} @kwbroman}
+\\[-4pt]
+{\scriptsize Course web: \href{http://kbroman.org/Tools4RR}{\tt kbroman.org/Tools4RR}}
+}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{} % no page number here
+\frame{
+  \titlepage
+
+\note{R packages and the Comprehensive R Archive Network (CRAN) are
+  important features of R. R packages provide a simple way to distribute R
+  code and documentation. And they really are rather simple to create.
+
+  Write an R package to keep track of the misc.\ R functions
+  that you write and reuse. Write an R package to distribute the data
+  and software that accompany a paper.
+
+  The most painful part of writing an R package is the construction of
+  the documentation files, which are in a special {\tt .Rd}
+  format. But the Roxygen2 tool makes this rather easy: you write
+  comments preceding each R function, in a specially structured way,
+  and then use the Roxygen2 tool to create the {\tt .Rd} files for you.
+}
+} }
+
+
+
+
+\begin{frame}{Why write an R package?}
+
+\vspace{18pt}
+
+\bbi
+\item To distribute R code and documentation
+\item To keep track of the misc.\ R functions you write
+  {\only<2|handout>{\hilit}and reuse}
+\item To distribute data and software accompanying a paper.
+\ei
+
+\note{R packages can be big and important.
+
+     But that shouldn't scare you off. Assembling a few R functions
+     within a package will make it vastly easier for {\nhilit you} to
+     use them regularly. You don't even need to distribute the package.
+
+     And really, the R package system is an incredibly important
+     feature of R. Packages on CRAN are basically guaranteed to be
+     installable, as they are regularly built, installed, and tested
+     on multiple systems.
+}
+\end{frame}
+
+
+\begin{frame}[c]{}
+
+\figh{Figs/R-exts.png}{0.9}
+
+\note{The Writing R Extensions manual is the key source for the
+  specifications of R packages. It's rough going in parts, but if you want to
+  get a package on CRAN, you should read it.
+}
+\end{frame}
+
+
+\begin{frame}{A simple example: RSkittleBrewer}
+
+\vspace{6pt}
+
+\figh{Figs/RSkittleBrewer.png}{0.8}
+
+\vspace{6pt}
+
+\hfill {\tt \footnotesize \lolit \href{http://alyssafrazee.com/RSkittleBrewer.html}{alyssafrazee.com/RSkittleBrewer.html}}
+
+
+\note{I was going to write a short example R package, but Alyssa
+  Frazee saved me the effort. Her package is a perfect little example
+  to illustrate how to write a package.
+
+  It's also a great example of a small but really useful package.
+  One small function could be widely useful; you just need to package
+  it and tell people about it.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{R package contents}
+
+\vspace{24pt}
+
+\begin{lstlisting}
+RSkittleBrewer/
+
+    DESCRIPTION
+    NAMESPACE
+
+    R/RSkittleBrewer.R
+    R/plotSkittles.R
+    R/plotSmarties.R
+
+    man/RSkittleBrewer.Rd
+    man/plotSkittles.Rd
+    man/plotSmarties.Rd
+\end{lstlisting}
+
+\note{
+  In the simplest form, an R package is a directory containing: a {\tt DESCRIPTION}
+  file (describing the package), a {\tt NAMESPACE} file (indicating
+  which functions are available to users), an {\tt R/} directory
+  containing R code in {\tt .R} files, and a {\tt man/} directory
+  containing documentation in {\tt .Rd} files.
+}
+\end{frame}
+
+\begin{frame}[fragile]{{\tt DESCRIPTION} file}
+
+\vspace{24pt}
+
+\begin{lstlisting}
+Package: RSkittleBrewer
+Version: 1.1
+Author: Alyssa Frazee
+Maintainer: Alyssa Frazee <afrazee@jhsph.edu>
+License: MIT + file LICENSE
+Title: fun with R colors
+Description: for those times you want to make plots with...
+URL: https://github.com/alyssafrazee/RSkittleBrewer
+\end{lstlisting}
+
+\note{
+  The {\tt DESCRIPTION} file is pretty self-explanatory. It just
+  contains basic information about the package and its author.
+
+  The simplest way to create this sort of file is to copy and edit one
+  from some other package.
+
+  The only part that might be unclear is the {\tt License} field. You
+  need to choose a license. We'll talk about this on the very last day
+  of the course.
+
+  For now, I'd suggest choosing between the GPL-3
+  (the GNU Public License v3) and MIT licenses. GPL-3 has a
+  ``pass-through'' provision: software that incorporates GPL-3 code
+  must also be licensed as GPL-3. This is a good but restrictive
+  thing. The MIT license is the most bare-bones license possible: it
+  basically just says ``Do what you want, but don't blame me.''
+
+  An R package with the MIT license needs to also include a {\tt
+  LICENSE} file or R will complain; copy and edit the one from the
+  RSkittleBrewer package.
+}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{{\tt NAMESPACE} file}
+
+\vspace{24pt}
+
+\begin{lstlisting}
+export(RSkittleBrewer)
+export(plotSkittles)
+export(plotSmarties)
+\end{lstlisting}
+
+
+
+\note{
+  The {\tt NAMESPACE} file is a bit technical: it tells R what
+  functions that will be accessible to users.
+
+  The point of this is to keep different packages from stepping on
+  each others' toes.
+}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{An {\tt .Rd} file}
+
+\vspace{12pt}
+
+\begin{lstlisting}
+\name{RSkittleBrewer}
+\alias{RSkittleBrewer}
+\title{Candy-based color palettes}
+\description{Vectors of colors corresponding to different
+             candies.}
+\usage{RSkittleBrewer(flavor = c("original", "tropical",
+                      "wildberry", "M&M", "smarties"))
+}
+\arguments{
+  \item{flavor}{Character string for candy-based color
+  palette.}
+}
+\value{Vector of character strings representing the chosen
+       set of colors.}
+\examples{
+plotSkittles()
+plotSmarties()
+}
+\keyword{hplot}
+\seealso{ \code{\link{plotSkittles}},
+          \code{\link{plotSmarties}} }
+\end{lstlisting}
+
+\note{
+  The R documentation format is very LaTeX-like.
+
+  It describes what the function does, what its
+  arguments are, and what output it produces.
+
+  You can further provide examples (which can also serve as tests) and
+  links to related functions. The examples need to be {\nhilit fast}
+  ($\ll$ 5 sec), because they're run frequently. (CRAN checks every
+  package every day on multiple systems.)
+
+  Writing these help files is tedious! That's where Roxygen2 comes in.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{Building, installing, and checking}
+
+\vspace{24pt}
+
+\begin{lstlisting}
+R CMD build RSkittleBrewer
+R CMD INSTALL RSkittleBrewer_1.1.tar.gz
+R CMD check RSkittleBrewer_1.1.tar.gz
+
+R CMD check --as-cran RSkittleBrewer_1.1.tar.gz
+
+R CMD INSTALL --library=~/Rlibs RSkittleBrewer_1.1.tar.gz
+# (~/.Renviron file contains R_LIBS=~/Rlibs)
+
+# On windows:
+R CMD INSTALL --build RSkittleBrewer_1.1.tar.gz
+\end{lstlisting}
+
+\bigskip
+\begin{lstlisting}
+# also consider (within R):
+library(devtools)
+build("/path/to/RSkittleBrewer")
+build("/path/to/RSkittleBrewer", binary=TRUE)
+\end{lstlisting}
+
+\note{
+  To install your package, you first need to {\nhilit build} it. {\tt
+    R CMD build} creates the {\tt .tar.gz} source file that you'd
+  distribute.
+
+  You then use {\tt R CMD INSTALL} to install the package. You may
+  want to use {\tt --library=/some/dir} to install to a different
+  directory, in which case you need to set {\tt R\_LIBS} in your {\tt
+    {\textasciitilde}/.Renviron} file.
+
+  {\tt R CMD check} runs extensive checks of the package, including
+  running all of the examples in the help files.
+  Pay attention to any errors, warnings, or notes, and revise the
+  package to avoid them. This is particularly true if you want to
+  submit the package to CRAN.
+
+  Before submitting to CRAN, be sure to run {\tt R CMD check} with the
+  lesser-known {\tt --as-cran} flag, which checks further things.
+
+  On Windows, use {\tt R CMD INSTALL --build} to create a {\tt .zip}
+  file of the ``compiled'' package. You can also use the {\tt build()}
+  function from the devtools package.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{Roxygen2 comments}
+
+\vspace{24pt}
+
+\begin{lstlisting}
+#  RSkittleBrewer
+#' Candy-based color palettes
+#'
+#' Vectors of colors corresponding to different candies.
+#'
+#' @param flavor Character string for candy-based color palette.
+#'
+#' @export
+#' @return Vector of character strings representing the chosen...
+#'
+#' @examples
+#' plotSkittles()
+#' plotSmarties()
+#'
+#' @seealso \code{\link{plotSkittles}},
+#'   \code{\link{plotSmarties}}
+#' @keywords hplot
+RSkittleBrewer <-
+...
+\end{lstlisting}
+
+
+\note{
+  The {\tt .Rd} files are a pain to create and maintain. Plus, you'll
+  end up writing documentation in two places: in the R code, and then
+  in the separate {\tt .Rd} files.
+
+  Roxygen2 is a system for writing structured comments in the R code
+  that get converted to {\tt .Rd} files. You just maintain the
+  documentation in one place: in the R code.
+  The Roxygen comments start with {\tt \#'}. The first line is the
+  title; the second is the description.
+
+  The individual {\tt {\textbackslash}item}'s within {\tt arguments} become {\tt
+    @param}. The {\tt {\textbackslash}value} field becomes {\tt @return}.
+
+  You still need to know a bit about the {\tt .Rd} format; for
+  example, the {\tt {\textbackslash}code\{{\textbackslash}link\{blah\}\}}.
+
+  Roxygen2 will across create the {\tt NAMESPACE} file. That's what
+  {\tt @export} is for.
+
+  You may also be interested in the Rd2roxygen package, for converting
+  a package with hand-written {\tt .Rd} files to the Roxygen2 system.
+}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Makefile}
+
+\vspace{24pt}
+
+\begin{lstlisting}
+# build package documentation
+doc:
+  R -e "devtools::document()"
+\end{lstlisting}
+
+\note{
+  Here's the {\tt Makefile} I use to build the {\tt .Rd} files: I use
+  the {\tt document()} function within the {\tt devtools} package.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{\tt .Rbuildignore}
+
+\vspace{24pt}
+
+\begin{lstlisting}
+Makefile
+\end{lstlisting}
+
+\note{You'll want to include a {\tt .Rbuildignore} file in your
+  package directory, containing the single line ``{\tt
+    Makefile}''. This tells R about files to {\nhilit not} include
+ in the {\tt .tar.gz} file it builds. You'd get complaints from {\tt R
+   CMD check} otherwise.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{Include a {\tt README} or {\tt README.md} file}
+
+\vspace{6pt}
+
+\begin{lstlisting}
+fun with R Colors
+=================
+
+If you want high-quality, scientifically-researched color
+schemes for your R plots, check out
+[RColorBrewer](http://cran.r-project.org/web/packages/RColorBrewer).
+If you want your plots to be colored the same way as packs of
+Skittles (or M&Ms), then this package (RSkittleBrewer) is the
+way to go.
+
+### install
+with `devtools`:
+
+```S
+devtools::install_github('RSkittleBrewer', 'alyssafrazee')
+```
+
+### use
+There are only three functions in this package.
+
+Call `RSkittleBrewer` on a flavor to get a vector of R color
+names that correspond to that Skittle flavor.
+...
+\end{lstlisting}
+
+\note{Include a {\tt README} or {\tt README.md} file; R will ignore
+  it, but it will show up on GitHub.
+
+  You can use {\tt ReadMe} or {\tt ReadMe.md}, but then you need to
+  include it in the {\tt .Rbuildignore} file or R will complain.
+}
+\end{frame}
+
+
+\begin{frame}[c]{}
+
+
+\centerline{That's it!}
+
+\note{That's all you need to make a package.
+
+  There's more, but you should start with just that stuff.
+}
+\end{frame}
+
+
+\begin{frame}{Package vignettes}
+
+\bbi
+\item Include \emph{vignettes\/} to show how to use your package.
+\item It's simplest to use R Markdown.
+  \bi
+  \item Create a {\tt vignettes/} subdirectory.
+  \item Place a {\tt .Rmd} file there.
+  \item The name of the file becomes the name of the vignette.
+  \ei
+\item Include the following in the {\tt .Rmd} file's YAML header:
+  \bi
+  \item[] {\lolit \ttfn output: rmarkdown::html\_vignette}
+  \item[] {\lolit \ttfn vignette: >}
+  \item[] {\lolit \ttfn \hspace{2em} \%{\textbackslash}VignetteIndexEntry\{Intro to RSkittleBrewer\}}
+  \item[] {\lolit \ttfn \hspace{2em} \%{\textbackslash}VignetteEngine\{knitr::rmarkdown\}}
+  \item[] {\lolit \ttfn \hspace{2em} {\textbackslash}usepackage[utf8](inputenc)}
+  \ei
+
+\item Load the package in an initial chunk
+
+  \bi
+  \item[] {\lolit \ttfn library(RSkittleBrewer)}
+  \ei
+
+\ei
+
+\note{In my experience, people tend not to read detailed
+  documentation, but they like tutorials. This is what \emph{vignettes\/}
+  are for.
+
+  It's easiest to write vignettes in R Markdown (allowed in R 3.0
+  onwards). You create a subdirectory {\tt vignettes/} and put the
+  usual sort of {\tt .Rmd} files there. You just need to add a few
+  special lines in the YAML header for the file.
+
+  Also, in your {\tt .Rmd} file, you'll need to load the package
+  before you start using it.
+}
+\end{frame}
+
+\begin{frame}{Package vignettes}
+
+\bbi
+\item In the {\ttfn DESCRIPTION} file, include:
+  \bi
+  \item[] {\lolit \ttfn Suggests: knitr, rmarkdown}
+  \item[] {\lolit \ttfn VignetteBuilder: knitr}
+  \ei
+
+\item The following lists the vignettes for a package and then opens
+  a selected vignette.
+
+  \bi
+  \item[] {\lolit \ttfn library(RSkittleBrewer)}
+  \item[] {\lolit \ttfn vignette(package="RSkittleBrewer")}
+  \item[] {\lolit \ttfn vignette("RSkittleBrewer", "RSkittleBrewer")}
+  \ei
+\ei
+
+\note{There's one other little detail: you need to mention knitr as
+  the vignette builder in your {\tt DESCRIPTION} file. You also need
+  to include knitr and rmarkdown in {\tt Suggests:}.
+
+  If you submit the package to CRAN, links to the vignettes will be listed on
+  web page for the package. You might also refer to them in your {\tt
+  README} file.
+
+  Within R, you can use the {\tt vignette} function to view the
+  available vignettes for a package and to open a particular
+  vignette. (With R Markdown vignettes, the compiled html file
+  will be opened in your web browser.)
+}
+\end{frame}
+
+\begin{frame}{Optional stuff}
+
+\bbi
+\item {\tt NEWS} file describing changes in each version of the
+  package.
+\item {\tt inst/CITATION} file describing how to cite your package.
+\item {\tt inst/doc/} directory any sort of misc.\ documentation
+  (e.g., pre-compiled computationally heavy vignettes)
+\item {\tt data/} directory containing data
+\item {\tt src/} directory containing C/C++/Fortran code
+\item {\tt demo/} directory with demonstrations (like vignettes, but
+  to be executed in real-time).
+\item {\tt tests/} and/or {\tt inst/tests/} containing tests.
+\ei
+
+
+\note{We could go on and on about packages. Here are some of the key
+  additional things to consider adding to your package.
+
+  The {\tt inst/} subdirectory is ignored by R but its contents get
+  moved back to the root directory for the package when installed. If
+  you want your {\tt README} file to be named {\tt ReadMe}, you'd put
+  it here.
+
+  It's useful to include example data sets. Your package could contain
+  {\nhilit only} data! You should document them. See
+  {\tt http://stackoverflow.com/questions/2310409}
+
+}
+\end{frame}
+
+
+
+\begin{frame}{devtools}
+
+\vspace{12pt}
+
+Get to know the \href{http://github.com/hadley/devtools}{devtools} package.
+
+\vspace{12pt}
+
+\bi
+\item {\tt dev\_mode()}
+\item {\tt load\_all()}
+\item {\tt install\_github()}, {\tt install\_bitbucket}, \dots
+\item {\tt document()}
+\item {\tt build()}
+\item {\tt check()}
+\item {\tt check\_doc()}
+\item {\tt run\_examples()}
+\item {\tt test()} {\lolit \, (next time)}
+\ei
+
+
+\note{I've tried to characterize package development as super simple,
+  but all coding involves considerable testing, debugging, and
+  exploration, and re-building and re-installing R packages can be
+  tedious.
+
+  The devtools package reduces a lot of the hassle. Try it out!
+
+  {\tt dev\_mode()} puts you in ``development mode'' so that package
+  installs won't affect your regular R package directory. {\tt load\_all()} does
+  the equivalent of installing and reloading a package. (Otherwise,
+  you might exit R, re-build the package, re-install, invoke R, and
+  re-load the package.)
+
+  You can use {\tt install\_github()} to install a package directly from
+  GitHub.
+
+  On Mac OSX Mavericks (10.9), gnutar is gone, and devtools gives an
+  error. The simplest solution is to make a symbolic link from tar to
+  gnutar:
+
+  \qquad  {\tt sudo ln -s /usr/bin/tar /usr/bin/gnutar}
+}
+\end{frame}
+
+
+\begin{frame}{Summary}
+
+\bbi
+\item R packages really aren't that hard.
+\item R packages are really useful.
+  \bi
+  \item Distributing software and data
+  \item Organizing code for a paper
+  \item Organizing your misc.\ R functions
+  \ei
+\item Look at others' packages, and learn from them.
+\item Adopt the tools in the
+  \href{http://github.com/hadley/devtools}{devtools} package.
+\ei
+
+
+\note{It's surprising to me just how many plain R scripts are sitting
+  on people's web pages. Getting them into a package is really not
+  that hard and would make the material {\nhilit much} more useful.
+}
+\end{frame}
+
+\end{document}
