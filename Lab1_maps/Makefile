@@ -1,7 +1,6 @@
-all: geneticmaps.pdf
-
-geneticmaps.pdf: geneticmaps.dvi Makefile geneticmaps.R
+../docs/geneticmaps.pdf: geneticmaps.dvi Makefile geneticmaps.R
 	dvipdf geneticmaps.dvi geneticmaps.pdf
+	mv geneticmaps.pdf $@
 
 geneticmaps.dvi: geneticmaps.tex Makefile
 	latex geneticmaps
