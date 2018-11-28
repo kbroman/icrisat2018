@@ -8,10 +8,12 @@ R/qtl](https://www.icrisat.org/event/2nd-international-workshop-on-advanced-r-r-
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/geneticmaps.pdf)
 
 - Lecture on basic QTL mapping
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec1_introqtl.pdf)
 
 - Lab on basic QTL mapping
 
 - Lecture on multiple QTL mapping
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec2_multiqtl.pdf)
 
 - Lab on multiple QTL mapping
 
