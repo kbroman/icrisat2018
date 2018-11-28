@@ -20,12 +20,12 @@ R/qtl](https://www.icrisat.org/event/2nd-international-workshop-on-advanced-r-r-
 - Lab on multi-parent populations
 
 - Lecture on writing clear code
-[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/clearcode.pdf)
-[![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/clearcode_withnotes.pdf)
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec4a_clearcode.pdf)
+[![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/lec4a_clearcode_withnotes.pdf)
 
 - Lecture on writing R packages
-[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/rpack.pdf)
-[![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/rpack_withnotes.pdf)
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec4b_rpack.pdf)
+[![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/lec4b_rpack_withnotes.pdf)
 
 
 ---

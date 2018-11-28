@@ -1,15 +1,15 @@
 R_OPTS=--no-save --no-restore --no-init-file --no-site-file # --vanilla, but without --no-environ
 
-pdf: ../docs/rpack.pdf ../docs/rpack_withnotes.pdf
+pdf: ../docs/lec4b_rpack.pdf ../docs/lec4b_rpack_withnotes.pdf
 
-../docs/rpack.pdf: rpack.tex header.tex
-	xelatex rpack
-	mv rpack.pdf $@
+../docs/lec4b_rpack.pdf: lec4b_rpack.tex header.tex
+	xelatex lec4b_rpack
+	mv lec4b_rpack.pdf $@
 
-../docs/rpack_withnotes.pdf: rpack_withnotes.tex header.tex
-	xelatex rpack_withnotes
-	pdfnup rpack_withnotes.pdf --nup 1x2 --no-landscape --paper letterpaper --frame true --scale 0.9
-	mv rpack_withnotes-nup.pdf $@
+../docs/lec4b_rpack_withnotes.pdf: lec4b_rpack_withnotes.tex header.tex
+	xelatex lec4b_rpack_withnotes
+	pdfnup lec4b_rpack_withnotes.pdf --nup 1x2 --no-landscape --paper letterpaper --frame true --scale 0.9
+	mv lec4b_rpack_withnotes-nup.pdf $@
 
-rpack_withnotes.tex: rpack.tex createVersionWithNotes.rb
-	createVersionWithNotes.rb rpack.tex rpack_withnotes.tex
+lec4b_rpack_withnotes.tex: lec4b_rpack.tex createVersionWithNotes.rb
+	createVersionWithNotes.rb lec4b_rpack.tex lec4b_rpack_withnotes.tex
