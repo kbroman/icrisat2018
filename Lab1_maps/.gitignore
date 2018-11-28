@@ -1,0 +1,10 @@
+*.aux
+*.dvi
+*.log
+*.pdf
+*.R
+*.tex
+Figs/
+Rcache/
+SimData/
+TrialAnalysis/
