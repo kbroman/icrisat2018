@@ -4,31 +4,26 @@ Materials for the [2nd international workshop on advanced R and
 R/qtl](https://www.icrisat.org/event/2nd-international-workshop-on-advanced-r-r-qtl/),
 3-7 Dec 2018
 
-- Lab on genetic map construction
+- Genetic map construction
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/geneticmaps.pdf)
 
-- Lecture on basic QTL mapping
+- Basic QTL mapping
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec1_introqtl.pdf)
+[![R code](icons16/R-icon.png)](https://github.com/kbroman/icrisat2018/blob/master/2_introqtl/2_introqtl.R)
 
-- Lab on basic QTL mapping
-
-- Lecture on multiple QTL mapping
+- Multiple QTL mapping
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec2_multiqtl.pdf)
+[![R code](icons16/R-icon.png)](https://github.com/kbroman/icrisat2018/blob/master/3_multiqtl/3_multiqtl.R)
 
-- Lab on multiple QTL mapping
+- Multi-parent populations
 
-- Lecture on multi-parent populations
-
-- Lab on multi-parent populations
-
-- Lecture on writing clear code
+- Writing clear code
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec4a_clearcode.pdf)
 [![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/lec4a_clearcode_withnotes.pdf)
 
-- Lecture on writing R packages
+- Writing R packages
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec4b_rpack.pdf)
 [![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/lec4b_rpack_withnotes.pdf)
-
 
 ---
 
