@@ -1,0 +1,741 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvips]{graphicx}
+\usepackage{eepic}
+\usepackage{color}
+\usepackage{wasysym} % \female \male
+\usepackage[landscape,pdftex]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\definecolor{cantelope}{rgb}{1.0,0.8,0.4}
+\hypersetup{
+    colorlinks, urlcolor={cantelope}
+}
+\hypersetup{pdfpagemode=UseNone} % don't show bookmarks on initial view
+
+\DeclareOption{bigsym}{\DeclareSymbolFont{largesymbols}{OMX}{psycm}{m}{n}}
+\ProcessOptions
+
+\setlength{\oddsidemargin}{-0.75in}
+\setlength{\evensidemargin}{-0.75in}
+\setlength{\topmargin}{-1in}
+\setlength{\textheight}{7.75in}
+\setlength{\textwidth}{10.5in}
+\setlength{\footskip}{0in}
+\setlength{\parindent}{0pt}
+\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
+
+\renewcommand{\familydefault}{phv} % helvetica
+
+% following: color
+\definecolor{mybgcolor}{rgb}{0,0,0.3125}
+\definecolor{myyellow}{rgb}{1,1,0.4}
+\definecolor{myblue}{rgb}{0.4,0.8,1}
+\definecolor{mypink}{rgb}{1,0.4,1}
+\definecolor{mywhite}{rgb}{1,1,1}
+
+% header/footer layout
+\pagestyle{fancy}
+\lhead{} \chead{} \rhead{}
+\lfoot{} \cfoot{} \rfoot{\color{myyellow} \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% font sizes
+\newcommand{\superlarge}{\fontsize{60}{60} \selectfont}
+\newcommand{\titlesize}{\fontsize{40}{50} \selectfont}
+\newcommand{\headsize}{\fontsize{35}{35} \selectfont}
+\newcommand{\textsize}{\fontsize{30}{35} \selectfont}
+\newcommand{\smallsize}{\fontsize{25}{30} \selectfont}
+\newcommand{\smallersize}{\fontsize{20}{25} \selectfont}
+\newcommand{\smallestsize}{\fontsize{18}{22} \selectfont}
+\newcommand{\lod}{\text{LOD}}
+\newcommand{\plod}{\text{pLOD}}
+\newcommand{\bic}{\text{BIC}}
+\newcommand{\rss}{\text{RSS}}
+\newcommand{\var}{\text{var}}
+\newcommand{\M}{\text{M}}
+
+
+\pagecolor{mybgcolor}
+\color{mywhite}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+\titlesize \color{myyellow}
+
+
+\vspace*{15mm}
+
+Multiple QTL mapping
+
+\color{mypink}
+\rule{10in}{1mm}
+
+\vspace{5mm}
+
+\textsize \color{myblue}
+Karl Broman
+\vspace{5mm}
+
+\color{mywhite}
+{\smallsize Biostatistics and Medical Informatics
+
+University of Wisconsin -- Madison
+\vspace{20mm}
+
+
+\href{http://rqtl.org}{\tt rqtl.org} \\[3pt]
+\href{https://kbroman.org}{\tt kbroman.org} \\[3pt]
+\href{https://github.com/kbroman}{\tt github.com/kbroman} \\
+\href{https://twitter.com/kwbroman}{\tt @kwbroman}
+}
+
+\end{center}
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Modeling multiple QTL
+\end{minipage}
+
+\vspace{3cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{10in}
+\begin{itemize}
+\itemsep24pt
+\item Reduce residual variation $\longrightarrow$ increased power
+
+\item Separate linked QTL
+
+\item Identify interactions among QTL {\color{myblue} (epistasis)}
+
+\end{itemize}
+\end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Epistasis in BC
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/epistasis_bc.pdf}}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Epistasis in F$_{\mathsf{2}}$
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/epistasis_f2.pdf}}
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+2-dim, 2-QTL scan
+\end{minipage}
+
+\vspace{2cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{10in}
+For all pairs of positions, fit the following models:
+
+\vspace{10mm}
+
+\hfill
+\begin{minipage}{9in}
+{\color{myblue}
+$\mathsf{\text{H}_f: y = \mu + \beta_1 q_1 + \beta_2 q_2 +
+      \gamma q_1 q_2 + \epsilon}$
+
+\vspace{5mm}
+
+$\mathsf{\text{H}_a: y = \mu + \beta_1 q_1 + \beta_2 q_2 +
+      + \epsilon}$
+
+\vspace{5mm}
+
+$\mathsf{\text{H}_1: y = \mu + \beta_1 q_1 + \epsilon}$
+
+\vspace{5mm}
+
+$\mathsf{\text{H}_0: y = \mu + \epsilon}$
+
+}
+\end{minipage}
+
+\vspace{20mm}
+
+log$_{\mathsf{10}}$ likelihoods:
+
+\vspace{5mm}
+
+\hfill
+\begin{minipage}{9in}
+{\color{myblue}
+
+$\mathsf{l_f(s,t)}$ \hspace{2cm}
+$\mathsf{l_a(s,t)}$ \hspace{2cm}
+$\mathsf{l_1(s)}$ \hspace{2cm}
+$\mathsf{l_0}$ \hspace{2cm}
+}
+\end{minipage}
+
+
+\end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+2-dim, 2-QTL scan
+\end{minipage}
+
+\vspace{2cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{10in}
+LOD scores:
+
+\vspace{5mm}
+
+\hspace{1cm}
+\begin{minipage}{5in}
+{\color{myblue}
+\begin{eqnarray*}
+\mathsf{\lod_f(s,t)}& = &\mathsf{l_f(s,t) - l_0} \\[24pt]
+\mathsf{\lod_a(s,t)}& = &\mathsf{l_a(s,t) - l_0} \\[24pt]
+\mathsf{\lod_i(s,t)}& = &\mathsf{l_f(s,t) - l_a(s,t)} \\[24pt]
+\mathsf{\lod_1(s)}&   = &\mathsf{l_1(s) - l_0} \\[24pt]
+\end{eqnarray*}
+}
+\end{minipage}
+
+
+
+\end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Summaries
+\end{minipage}
+
+\vspace{15mm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{10in}
+Consider each pair of chromosomes, {\color{myblue} $\mathsf{(j, k)}$}, \\
+and let {\color{myblue} $\mathsf{c(s)}$} denote the chromosome for
+  position {\color{myblue} $\mathsf{s}$}.
+
+\vspace{5mm}
+
+\hspace{1in}
+\begin{minipage}{6in}
+{\color{myblue}
+\begin{eqnarray*}
+\mathsf{\M_f(j,k)}& = &\mathsf{ \max_{c(s)=j, c(t)=k} \lod_f(s,t)} \\[12pt]
+\mathsf{\M_a(j,k)}& = &\mathsf{ \max_{c(s)=j, c(t)=k} \lod_a(s,t)} \\[12pt]
+\mathsf{\M_1(j,k)}& = &\mathsf{ \max_{c(s)=j \text{ or } k} \lod_1(s)} \\[36pt]
+\mathsf{\M_i(j,k)}& = &\mathsf{ \M_f(j,k) - \M_a(j,k)}\\[12pt]
+\mathsf{\M_{fv1}(j,k)}& = &\mathsf{ \M_f(j,k) - \M_1(j,k)}\\[12pt]
+\mathsf{\M_{av1}(j,k)}& = &\mathsf{ \M_a(j,k) - \M_1(j,k)}
+\end{eqnarray*}
+}
+\end{minipage}
+\end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+$\boldsymbol{\rightarrow}$ R
+
+\vspace{3cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{9.5in}
+\begin{itemize}
+\itemsep24pt
+\item \verb|scantwo()|
+\item \verb|iplotScantwo()| in \href{http://kbroman.org/qtlcharts}{R/qtlcharts}
+\end{itemize} \end{minipage}
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Hypothesis testing?
+\end{minipage}
+
+\vspace{2cm}
+
+\color{mywhite} \smallersize
+
+\hfill \begin{minipage}[t]{10in}
+\begin{itemize}
+\itemsep20mm
+\item In the past, QTL mapping has been regarded as a task of
+  {\color{mypink} hypothesis testing}.
+
+\vspace{10mm}
+
+\hspace{15mm} {\color{myblue} Is this a QTL?}
+
+\vspace{10mm}
+
+Much of the focus has been on adjusting for test multiplicity.
+
+\item It is better to view the problem as one of {\color{mypink} model
+  selection}.
+
+\vspace{10mm}
+
+\hspace{15mm} {\color{myblue} What set of QTL are well supported?}
+
+\hspace{15mm} {\color{myblue} Is there evidence for QTL-QTL
+  interactions?}
+
+\vspace{10mm}
+
+{\color{mypink} Model} $\mathsf{=}$ a defined set of QTL and QTL-QTL interactions
+\\
+(and possibly covariates and QTL-covariate interactions).
+
+\end{itemize}
+\end{minipage}
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Model selection
+\end{minipage}
+
+\vspace{15mm} \color{mywhite} \smallersize
+
+\hspace{0.5in}
+\begin{minipage}[t]{4in}
+\vspace*{0mm}
+
+\begin{itemize}
+\item Class of models
+{\smallestsize \color{myblue} \begin{itemize}
+\item Additive models
+\item + pairwise interactions
+\item + higher-order interactions
+\item Regression trees
+\end{itemize} }
+
+\vspace{15mm}
+
+\item Model fit
+{\smallestsize \color{myblue} \begin{itemize}
+\item Maximum likelihood
+\item Haley-Knott regression
+\item extended Haley-Knott
+\item Multiple imputation
+\item MCMC
+\end{itemize} }
+
+\end{itemize}
+
+\end{minipage} \hspace{1in}
+\begin{minipage}[t]{4in}
+\vspace*{0mm}
+
+\begin{itemize}
+\item Model comparison
+{\smallestsize \color{myblue} \begin{itemize}
+\item Estimated prediction error
+\item AIC, BIC, penalized likelihood
+\item Bayes
+{\color{mybgcolor}
+\item }
+\end{itemize} }
+
+\vspace{15mm}
+
+
+\item Model search
+{\smallestsize \color{myblue} \begin{itemize}
+\item Forward selection
+\item Backward elimination
+\item Stepwise selection
+\item Randomized algorithms
+\end{itemize} }
+
+
+\end{itemize}
+
+\end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Target
+\end{minipage}
+
+\vspace{2cm} \color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+\begin{itemize}
+\itemsep24pt
+\item Selection of a model includes two types of errors:
+
+{\smallestsize
+\begin{quote} \begin{itemize}
+\item Miss important terms (QTLs or interactions)
+\item Include extraneous terms
+\end{itemize} \end{quote}}
+
+\item Unlike in hypothesis testing, we can make {\color{mypink} both errors} at
+the same time.
+
+\item {\color{myyellow} Identify as many correct terms as possible, while
+{\color{mypink} controlling the rate of inclusion of extraneous terms}.}
+
+
+\end{itemize}
+\end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+What is special here?
+\end{minipage}
+
+\vspace{3cm} \color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+\begin{itemize}
+\itemsep24pt
+
+\item Goal: identify the major players
+
+\item A continuum of ordinal-valued covariates (the genetic loci)
+
+\item Association among the covariates
+{\color{myblue} \smallestsize
+\begin{itemize}
+\item Loci on different chromosomes are independent
+\item Along chromosome, a very simple (and known) correlation
+  structure
+\end{itemize} }
+
+\end{itemize}
+\end{minipage}
+
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Exploratory methods
+\end{minipage}
+
+\vspace{3cm} \color{mywhite} \smallersize
+
+\hfill
+\begin{minipage}{10in}
+\begin{itemize}
+\itemsep36pt
+\item Condition on a large-effect QTL
+
+
+{\color{myblue} \smallestsize
+\begin{itemize}
+\item Reduce residual variation
+\item Conditional LOD score:
+
+\vspace{1cm}
+
+\hspace{1in} $ \displaystyle{\mathsf{\lod(q_2 \ | \ q_1) = \text{log}_{10}
+    \left\{\frac{\text{Pr}(\text{data} \ | \ q_1, q_2)}{
+    \text{Pr}(\text{data} \ | \ q_1)}\right\} }}$
+\end{itemize} }
+
+\item Piece together the putative QTL from the 1d and 2d scans
+
+{\color{myblue} \smallestsize
+\begin{itemize}
+\item Omit loci that no longer look interesting (drop-one-at-a-time analysis)
+\item Study potential interactions among the identified loci
+\item Scan for additional loci (perhaps allowing interactions), conditional on these
+\end{itemize} }
+
+\end{itemize}
+\end{minipage}
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+$\boldsymbol{\rightarrow}$ R
+
+\vspace{3cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{9.5in}
+\begin{itemize}
+\itemsep24pt
+\item \verb|scanone()| with marker as additive covariate
+\item \verb|makeqtl()|, \verb|fitqtl()|, \verb|addqtl()|, \verb|refineqtl()|
+\end{itemize} \end{minipage}
+
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Automation
+\end{minipage}
+
+\vspace{3cm} \color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+\begin{itemize}
+\itemsep24pt
+
+\item Assistance to non-specialists
+
+\item Understanding performance
+
+\item Many phenotypes
+
+\end{itemize}
+\end{minipage}
+
+
+\newpage
+
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Additive QTL
+\end{minipage}
+
+\vspace{6cm}
+
+\color{mywhite} \smallersize
+\hfill \begin{minipage}{10in}
+
+\centerline{
+$\mathsf{y  = \mu + \sum \beta_j \, q_j + \epsilon}$ \hspace{1cm}
+       {\color{mypink} which $\mathsf{\beta_j \ne 0}$?}
+}
+
+\vspace{3cm}
+
+{\color{myyellow}
+$\mathsf{ \plod(\gamma) = \lod(\gamma) -
+    {\color{mypink} T} \, |\gamma| }$
+}
+
+
+\end{minipage}
+
+\newpage
+
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Additive QTL
+\end{minipage}
+
+\vspace{6cm}
+
+\color{mywhite} \smallersize
+\hfill \begin{minipage}{10in}
+
+\centerline{
+$\mathsf{y  = \mu + \sum \beta_j \, q_j + \epsilon}$ \hspace{1cm}
+       {\color{mypink} which $\mathsf{\beta_j \ne 0}$?}
+}
+
+\vspace{3cm}
+
+{\color{myyellow}
+$\mathsf{ \plod(\gamma) = \lod(\gamma) -
+    {\color{mypink} T} \, |\gamma| }$
+}
+
+
+\end{minipage}
+
+\vspace{2cm}
+
+\hfill \begin{minipage}[t]{1.4in}
+\vspace*{0mm}
+
+0 vs 1 QTL:
+\end{minipage}
+\begin{minipage}[t]{8.6in}
+\vspace*{0mm}
+
+\color{myblue}
+$\mathsf{\plod(\emptyset) = 0}$ \\[16pt]
+$\mathsf{\plod(\{\lambda\}) =
+    \lod(\lambda) - {\color{mypink} T}}$
+\end{minipage}
+
+\newpage
+
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Additive QTL
+\end{minipage}
+
+\vspace{6cm}
+
+\color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+
+\centerline{
+$\mathsf{y  = \mu + \sum \beta_j \, q_j + \epsilon}$ \hspace{1cm}
+       {\color{mypink} which $\mathsf{\beta_j \ne 0}$?}
+}
+
+\vspace{3cm}
+
+{\color{myyellow}
+$\mathsf{ \plod(\gamma) = \lod(\gamma) -
+    {\color{mypink} T} \, |\gamma| }$
+}
+
+
+\end{minipage}
+
+\vspace{2cm}
+
+\hfill \begin{minipage}[t]{10in}
+\vspace*{0mm}
+
+
+For the mouse genome: \\[6pt]
+\hspace*{0.5in} $\mathsf{\color{mypink} T}$ = {\color{myblue}
+  2.69} (BC) or {\color{myblue} 3.52} (F$_{\mathsf{2}}$)
+\end{minipage}
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+$\boldsymbol{\rightarrow}$ R
+
+\vspace{3cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{9.5in}
+\begin{itemize}
+\itemsep24pt
+\item \verb|stepwiseqtl()|
+\item \verb|plotLodProfile()|
+\end{itemize} \end{minipage}
+
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+References
+\end{minipage}
+
+\vspace*{15mm}
+
+\color{mywhite} \smallestsize
+
+\hspace*{0.5in}
+\begin{minipage}{9.5in}
+\begin{itemize}
+\itemsep8pt
+\item Strickberger MW (1985) \emph{Genetics}, 3rd edition.  Macmillan,
+New York, chapter 11.
+
+{\color{myblue} An old but excellent general genetics textbook with a very
+interesting discussion of epistasis.}
+
+
+\item Broman KW, Speed TP (2002) A model selection approach for the
+  identification of quantitative trait loci in experimental crosses. J
+  Roy Stat Soc B 64:641--656
+
+{\color{myblue} Multiple-QTL model selection with additive QTL.}
+
+\item Manichaikul A, Moon JY, Sen \'S, Yandell BS, Broman KW (2009) A
+  model selection approach for the identification of quantitative
+  trait loci in experimental crosses, allowing epistasis. Genetics
+  181:1077--1086
+
+{\color{myblue} Also account for epistasis.}
+
+\end{itemize}
+\end{minipage}
+
+\end{document}
