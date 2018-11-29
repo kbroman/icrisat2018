@@ -8,22 +8,22 @@ R/qtl](https://www.icrisat.org/event/2nd-international-workshop-on-advanced-r-r-
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/geneticmaps.pdf)
 
 - Basic QTL mapping
-[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec1_introqtl.pdf)
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/2_introqtl.pdf)
 [![R code](icons16/R-icon.png)](https://github.com/kbroman/icrisat2018/blob/master/2_introqtl/2_introqtl.R)
 
 - Multiple QTL mapping
-[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec2_multiqtl.pdf)
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/3_multiqtl.pdf)
 [![R code](icons16/R-icon.png)](https://github.com/kbroman/icrisat2018/blob/master/3_multiqtl/3_multiqtl.R)
 
 - Multi-parent populations
 
 - Writing clear code
-[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec4a_clearcode.pdf)
-[![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/lec4a_clearcode_withnotes.pdf)
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/5a_clearcode.pdf)
+[![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/5a_clearcode_withnotes.pdf)
 
 - Writing R packages
-[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/lec4b_rpack.pdf)
-[![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/lec4b_rpack_withnotes.pdf)
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/5b_rpack.pdf)
+[![pdf w/notes](icons16/notes-icon.png)](https://kbroman.org/icrisat2018/5b_rpack_withnotes.pdf)
 
 
 ---
