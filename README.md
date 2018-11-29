@@ -16,6 +16,8 @@ R/qtl](https://www.icrisat.org/event/2nd-international-workshop-on-advanced-r-r-
 [![R code](icons16/R-icon.png)](https://github.com/kbroman/icrisat2018/blob/master/3_multiqtl/3_multiqtl.R)
 
 - Multi-parent populations
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/4_mpp.pdf)
+[![R code](icons16/R-icon.png)](https://github.com/kbroman/icrisat2018/blob/master/4_mpp/4_mpp.R)
 
 - Writing clear code
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/5a_clearcode.pdf)

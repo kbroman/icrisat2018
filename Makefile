@@ -3,6 +3,7 @@ R_OPTS=--no-save --no-restore --no-init-file --no-site-file # --vanilla, but wit
 all: docs/geneticmaps.pdf \
 	 docs/2_introqtl.pdf \
 	 docs/3_multiqtl.pdf \
+	 docs/4_mpp.pdf \
 	 docs/5a_clearcode.pdf \
 	 docs/5a_clearcode_withnotes.pdf \
 	 docs/5b_rpack.pdf \
@@ -29,6 +30,10 @@ docs/2_introqtl.pdf: 2_introqtl/2_introqtl.tex
 docs/3_multiqtl.pdf: 3_multiqtl/3_multiqtl.tex
 	cd 3_multiqtl;pdflatex $(<F)
 	mv 3_multiqtl/3_multiqtl.pdf $@
+
+docs/4_mpp.pdf: 4_mpp/4_mpp.tex
+	cd 4_mpp;pdflatex $(<F)
+	mv 4_mpp/4_mpp.pdf $@
 
 docs/5a_clearcode.pdf: 5a_clearcode/5a_clearcode.tex latex/header.tex
 	cd 5a_clearcode;xelatex 5a_clearcode
