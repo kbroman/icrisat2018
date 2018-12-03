@@ -149,6 +149,110 @@ Epistasis in F$_{\mathsf{2}}$
 \centerline{\includegraphics{Figs/epistasis_f2.pdf}}
 
 
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Example
+\end{minipage}
+
+\vspace{30mm}
+
+\hfill
+\begin{minipage}{10in}
+\smallersize \color{mywhite}
+Sugiyama et al. Genomics 71:70-77, 2001
+
+\vspace{16pt}
+
+\smallestsize
+\color{myblue}
+250 male mice from the backcross (A $\times$ B) $\times$ B
+
+Blood pressure after two weeks drinking water with 1\% NaCl
+\end{minipage}
+
+\vspace{15mm}
+
+
+\centerline{\includegraphics{Figs/pheno.pdf}}
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Genetic map
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/geneticmap.pdf}}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Genotype data
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/genodata.pdf}}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+LOD curves
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/alod2.pdf}}
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Estimated effects
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/meffects.pdf}}
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Modeling multiple QTL
+\end{minipage}
+
+\vspace{3cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{10in}
+\begin{itemize}
+\itemsep24pt
+\item Reduce residual variation $\longrightarrow$ increased power
+
+\item Separate linked QTL
+
+\item Identify interactions among QTL {\color{myblue} (epistasis)}
+
+\end{itemize}
+\end{minipage}
 
 \newpage
 
@@ -249,6 +353,33 @@ LOD scores:
 \headsize \color{myyellow}
 \hfill \begin{minipage}{5.75in}
 \centering
+Results: $\mathsf{\lod_i}$ and $\mathsf{\lod_f}$
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/2dscan_allchr.pdf}}
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Results: $\mathsf{\lod_i}$ and $\mathsf{\lod_f}$
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/2dscan_selchr.pdf}}
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
 Summaries
 \end{minipage}
 
@@ -278,6 +409,18 @@ and let {\color{myblue} $\mathsf{c(s)}$} denote the chromosome for
 \end{minipage}
 \end{minipage}
 
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Results: $\mathsf{\lod_i}$ and $\mathsf{\lod_{fv1}}$
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/2dscan_selchr_fv1.pdf}}
+
 
 \newpage
 
@@ -295,6 +438,115 @@ $\boldsymbol{\rightarrow}$ R
 \item \verb|iplotScantwo()| in \href{http://kbroman.org/qtlcharts}{R/qtlcharts}
 \end{itemize} \end{minipage}
 
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Thresholds
+\end{minipage}
+
+\vspace{20mm}
+
+\color{mywhite} \smallersize
+
+\hfill \begin{minipage}[t]{9.5in}
+A pair of chromosomes {\color{myblue} $\mathsf{(j,k)}$} is considered interesting if:
+
+\vspace{25mm}
+
+{\color{myblue}
+\centerline{$ \mathsf{\M_f(j,k)} > \mathsf{ T_f }$ \hspace{5mm} {\color{mypink} and }
+\hspace{5mm}
+{\color{mypink} \{} $ \mathsf{\M_{fv1}(j,k)} > \mathsf{ T_{fv1} }$
+{\color{mypink} or }
+$ \mathsf{\M_i(j,k)} > \mathsf{ T_i }$  {\color{mypink} \}}}
+
+\vspace{36pt}
+
+\centerline{\color{mypink} or }
+
+\vspace{36pt}
+
+\centerline{$ \mathsf{\M_a(j,k)} > \mathsf{ T_a }$ \hspace{5mm} {\color{mypink} and }
+\hspace{5mm}
+$ \mathsf{\M_{av1}(j,k)} > \mathsf{ T_{av1} }$ }
+}
+
+
+\vspace{25mm}
+
+where the thresholds {\color{myblue} $\mathsf{(T_f, T_{fv1}, T_i, T_a,
+    T_{av1})}$} are determined by a permutation test with a 2d scan
+
+\end{minipage} \hspace{0.5in}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+2d scan summary
+\end{minipage}
+
+\vspace{40mm}
+
+\color{mywhite} \smallersize
+
+\begin{verbatim}
+                   pos1f pos2f lod.full lod.fv1 lod.int
+            c1:c4   71.3  30.0    14.36    6.78    0.27
+            c6:c15  55.0  20.5     6.91    4.95    2.92
+            c1:c1   39.3  78.3     5.10    1.58    0.09
+
+
+                   pos1a pos2a  lod.add lod.av1
+            c1:c4   68.3  30.0    14.09    6.50
+            c6:c15  24.0  22.5     3.99    2.03
+            c1:c1   48.3  79.3     5.02    1.50
+\end{verbatim}
+
+
+\newpage
+
+\vspace*{3in}
+
+\centerline{\headsize \color{mywhite} [R/qtl]}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Estimated effects
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/ieffects.pdf}}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Chr 1: $\mathsf{\lod_i}$ and $\mathsf{\lod_{av1}}$
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/2dscan_chr1.pdf}}
+
+
+\newpage
+
+\vspace*{3in}
+
+\centerline{\headsize \color{mywhite} [R/qtl]}
 
 
 
@@ -521,6 +773,43 @@ Exploratory methods
 \newpage
 
 \headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Controlling for chr 4
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/alod_c4.pdf}}
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Drop-one-QTL table
+\end{minipage}
+
+
+\vspace{40mm}
+
+\color{mywhite} \smallersize
+
+\begin{verbatim}
+                                  df    LOD   %var
+                1@68.3             1   6.30   11.0
+                4@30.0             1  12.21   20.1
+                6@61.0             2   7.93   13.6
+                15@17.5            2   7.14   12.3
+                6@61.0 : 15@17.5   1   5.68    9.9
+\end{verbatim}
+
+
+\newpage
+
+\headsize \color{myyellow}
 $\boldsymbol{\rightarrow}$ R
 
 \vspace{3cm}
@@ -694,6 +983,401 @@ $\boldsymbol{\rightarrow}$ R
 \item \verb|stepwiseqtl()|
 \item \verb|plotLodProfile()|
 \end{itemize} \end{minipage}
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Epistasis
+\end{minipage}
+
+\vspace{3cm} \color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+
+\centerline{
+$\mathsf{y  = \mu + \sum \beta_j \, q_j + \sum \gamma_{jk} \, q_j \,
+    q_k + \epsilon}$
+}
+
+\vspace{3cm}
+
+{\color{myyellow}
+$\mathsf{ \plod(\gamma) = \lod(\gamma) -
+    {\color{mypink} T_m} \, |\gamma|_m - {\color{mypink} T_i} \, |\gamma|_i }$
+}
+
+
+\vspace{15mm}
+
+\hspace{3cm} $\mathsf{\color{mypink} T_m}$ = as chosen previously
+
+\vspace{15mm}
+
+\hspace{3cm} $\mathsf{\color{mypink} T_i}$ = ?
+
+
+
+\end{minipage}
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Idea 1
+\end{minipage}
+
+\vspace{3cm} \color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+
+Imagine there are two additive QTL and consider a 2d, 2-QTL scan.
+
+\vspace{1cm}
+
+\hspace*{0.5in} $\mathsf{\color{mypink} T_i}$ = 95th percentile of the
+  distribution of \\[6pt]
+\hspace*{1.3in} {\color{myblue} $\mathsf{ \text{max} \, \lod_f(s,t) -
+    \text{max} \, \lod_a(s,t)}$}
+
+
+\end{minipage}
+
+
+
+\newpage
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Idea 1
+\end{minipage}
+
+\vspace{3cm} \color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+
+Imagine there are two additive QTL and consider a 2d, 2-QTL scan.
+
+\vspace{1cm}
+
+\hspace*{0.5in} $\mathsf{\color{mypink} T_i}$ = 95th percentile of the
+  distribution of \\[6pt]
+\hspace*{1.3in} {\color{myblue} $\mathsf{ \text{max} \, \lod_f(s,t) -
+    \text{max} \, \lod_a(s,t)}$}
+
+
+\vspace{2cm}
+
+For the mouse genome: \\[12pt]
+\hspace*{0.5in} $\mathsf{\color{mypink} T_m}$ = {\color{myblue}
+  2.69} (BC) or {\color{myblue} 3.52} (F$_{\mathsf{2}}$) \\[12pt]
+\hspace*{0.5in} $\mathsf{\color{mypink} T^H_i}$ = {\color{myblue}
+  2.62} (BC) or {\color{myblue} 4.28} (F$_{\mathsf{2}}$)
+
+
+\end{minipage}
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Idea 2
+\end{minipage}
+
+\vspace{3cm} \color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+
+Imagine there is one QTL and consider a 2d, 2-QTL scan.
+
+\vspace{1cm}
+
+\hspace*{0.5in} $\mathsf{\color{mypink} T_m + T_i}$ = 95th percentile of the
+  distribution of \\[6pt]
+\hspace*{2.0in} {\color{myblue} $\mathsf{ \text{max} \, \lod_f(s,t) -
+    \text{max} \, \lod_1(s)}$}
+
+
+\end{minipage}
+
+
+
+\newpage
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Idea 2
+\end{minipage}
+
+\vspace{3cm} \color{mywhite} \smallersize
+
+\hfill \begin{minipage}{10in}
+
+Imagine there is one QTL and consider a 2d, 2-QTL scan.
+
+\vspace{1cm}
+
+\hspace*{0.5in} $\mathsf{\color{mypink} T_m + T_i}$ = 95th percentile of the
+  distribution of \\[6pt]
+\hspace*{2.0in} {\color{myblue} $\mathsf{ \text{max} \, \lod_f(s,t) -
+    \text{max} \, \lod_1(s)}$}
+
+
+\vspace{2cm}
+
+For the mouse genome: \\[12pt]
+\hspace*{0.5in} $\mathsf{\color{mypink} T_m}$ = {\color{myblue}
+  2.69} (BC) or {\color{myblue} 3.52} (F$_{\mathsf{2}}$) \\[12pt]
+\hspace*{0.5in} $\mathsf{\color{mypink} T^H_i}$ = {\color{myblue}
+  2.62} (BC) or {\color{myblue} 4.28} (F$_{\mathsf{2}}$) \\[12pt]
+\hspace*{0.5in} $\mathsf{\color{mypink} T^L_i}$ = {\color{myblue}
+  1.19} (BC) or {\color{myblue} 2.69} (F$_{\mathsf{2}}$)
+
+
+\end{minipage}
+
+
+
+
+
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Models as graphs
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/models.pdf}}
+
+
+
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Results
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models1.pdf}}
+
+
+
+\newpage
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Results
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models2.pdf}}
+
+
+
+\newpage
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Results
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models3.pdf}}
+
+
+\newpage
+
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add an interaction?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models4.pdf}}
+
+
+
+\newpage
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add an interaction?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models5.pdf}}
+
+
+
+\newpage
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add an interaction?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models6.pdf}}
+
+
+
+\newpage
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add an interaction?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models7.pdf}}
+
+
+
+\newpage
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add an interaction?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models8.pdf}}
+
+
+
+
+\newpage
+
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add another QTL?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models9.pdf}}
+
+
+
+\newpage
+
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add another QTL?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models10.pdf}}
+
+
+
+\newpage
+
+
+\addtocounter{page}{-1}
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add another QTL?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models11.pdf}}
+
+
+
+\newpage
+
+
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Add a pair of QTL?
+\end{minipage}
+
+\vfill
+
+
+\centerline{\includegraphics{Figs/hyper_models12.pdf}}
+
 
 
 
