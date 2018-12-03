@@ -1,6 +1,6 @@
 R_OPTS=--no-save --no-restore --no-init-file --no-site-file # --vanilla, but without --no-environ
 
-all: docs/geneticmaps.pdf \
+all: docs/1_geneticmaps.pdf \
 	 docs/2_introqtl.pdf \
 	 docs/3_multiqtl.pdf \
 	 docs/4_mpp.pdf \
@@ -9,19 +9,21 @@ all: docs/geneticmaps.pdf \
 	 docs/5b_rpack.pdf \
 	 docs/5b_rpack_withnotes.pdf
 
-docs/geneticmaps.pdf: 1_maps/geneticmaps.dvi 1_maps/geneticmaps.R
-	cd 1_maps;dvipdf geneticmaps.dvi geneticmaps.pdf
-	mv 1_maps/geneticmaps.pdf $@
+docs/1_geneticmaps.pdf: 1_maps/1_geneticmaps.dvi 1_maps/1_geneticmaps.R
+	cd 1_maps;dvipdf 1_geneticmaps.dvi 1_geneticmaps.pdf
+	mv 1_maps/1_geneticmaps.pdf $@
 
-1_maps/geneticmaps.dvi: 1_maps/geneticmaps.tex
-	cd 1_maps;latex geneticmaps;latex geneticmaps;latex geneticmaps
+1_maps/1_geneticmaps.dvi: 1_maps/1_geneticmaps.tex
+	cd 1_maps;latex 1_geneticmaps
+	cd 1_maps;latex 1_geneticmaps
+	cd 1_maps;latex 1_geneticmaps
 
-1_maps/geneticmaps.tex: 1_maps/geneticmaps.Rnw 1_maps/clean_sweave.pl
-	echo "library(tools); Sweave(\"geneticmaps.Rnw\", pdf=FALSE)" | cd 1_maps; R --no-save --no-restore --quiet
-	cd 1_maps; clean_sweave.pl geneticmaps
+1_maps/1_geneticmaps.tex: 1_maps/1_geneticmaps.Rnw 1_maps/clean_sweave.pl
+	cd 1_maps;echo "library(tools); Sweave(\"1_geneticmaps.Rnw\", pdf=FALSE)" | R --no-save --no-restore --quiet
+	cd 1_maps; clean_sweave.pl 1_geneticmaps
 
-1-maps/geneticmaps.R: 1_maps/geneticmaps.Rnw
-	echo "library(tools); Stangle(\"geneticmaps.Rnw\")" | cd 1_maps;R --no-save --no-restore --quiet
+1-maps/1_geneticmaps.R: 1_maps/1_geneticmaps.Rnw
+	echo "library(tools); Stangle(\"1_geneticmaps.Rnw\")" | cd 1_maps;R --no-save --no-restore --quiet
 
 docs/2_introqtl.pdf: 2_introqtl/2_introqtl.tex
 	cd 2_introqtl;pdflatex $(<F)

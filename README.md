@@ -5,7 +5,7 @@ R/qtl](https://www.icrisat.org/event/2nd-international-workshop-on-advanced-r-r-
 3-7 Dec 2018
 
 - Genetic map construction
-[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/geneticmaps.pdf)
+[![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/1_geneticmaps.pdf)
 
 - Basic QTL mapping
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/2_introqtl.pdf)
