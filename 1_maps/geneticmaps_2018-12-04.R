@@ -58,3 +58,5 @@ table(g[238,], g[288,]) # note 1=AA, 2=AB, 3=BB
 cg[238,288] # share % of genotypes
 
 # omit one of each pair of duplicates
+mapthis <- subset(mapthis, ind= -c(292, 216, 288))
+nind(mapthis)
