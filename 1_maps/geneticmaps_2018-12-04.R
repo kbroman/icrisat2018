@@ -185,3 +185,5 @@ summary(rip4)
 rip4lik <- ripple(mapthis3, chr=4, window=3,
                   method="likelihood", error.prob=0.005)
 summary(rip4lik) # here the first order looks best
+# plot rec fracs again
+plotRF(mapthis3)
