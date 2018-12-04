@@ -88,3 +88,15 @@ head(gfreq)
 plot(gfreq[,1])
 plot(gfreq[,2])
 plot(gfreq[,3])
+
+pA <- gfreq[,1] + gfreq[,2]/2
+plot(pA)
+hist(pA, breaks=50)
+
+## pairwise linkages between markers
+mapthis <- est.rf(mapthis)
+checkAlleles(mapthis)
+
+# pull out all recombination fractions and LOD scores
+rf <- pull.rf(mapthis)
+lod <- pull.rf(mapthis)
