@@ -52,5 +52,9 @@ which(cg > 0.9 & !is.na(cg), arr.ind=TRUE)
 g <- pull.geno(mapthis)
 table(g[144,], g[292,]) # note 1=AA, 2=AB, 3=BB
 cg[144,292] # share 96.7% of genotypes
+table(g[214,], g[216,]) # note 1=AA, 2=AB, 3=BB
+cg[214,216] # share % of genotypes
+table(g[238,], g[288,]) # note 1=AA, 2=AB, 3=BB
+cg[238,288] # share % of genotypes
 
 # omit one of each pair of duplicates
