@@ -72,3 +72,4 @@ plot(hclust_out)
 # look for segregation distortion
 gt <- geno.table(mapthis)
 head(gt)
+gt[gt$P.value < 0.05/nrow(gt), ]
