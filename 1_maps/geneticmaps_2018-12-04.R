@@ -61,4 +61,10 @@ cg[238,288] # share % of genotypes
 mapthis <- subset(mapthis, ind= -c(292, 216, 288))
 nind(mapthis)
 
-# dendrogram
+# dendrogram for the individuals
+# distance 
+d <- 1 - cg
+diag(d) <- 0
+d[1:5,1:5]
+hclust_out <- hclust( as.dist(d) )
+plot(hclust_out)
