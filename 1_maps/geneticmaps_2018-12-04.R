@@ -187,3 +187,18 @@ rip4lik <- ripple(mapthis3, chr=4, window=3,
 summary(rip4lik) # here the first order looks best
 # plot rec fracs again
 plotRF(mapthis3)
+
+# linkage group 3
+mapthis3 <- orderMarkers(mapthis3, chr=3)
+rip <- ripple(mapthis3, chr=3, window=7)
+summary(rip)
+
+# linkage group 2
+mapthis3 <- orderMarkers(mapthis3, chr=2)
+rip <- ripple(mapthis3, chr=2, window=7)
+summary(rip)
+
+# linkage group 1 
+mapthis3 <- orderMarkers(mapthis3, chr=1)
+rip <- ripple(mapthis3, chr=1, window=7)
+summary(rip)
