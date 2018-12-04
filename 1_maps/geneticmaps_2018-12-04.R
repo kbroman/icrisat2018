@@ -207,3 +207,8 @@ plotRF(mapthis3)
 
 # need to fix LG 2 : markers 1 and 2
 #    belong near the end
+nmar(mapthis3) # 24 markers
+mapthis3 <- switch.order(mapthis3, 
+                         chr=2,
+                c(3:23, 1:2, 24))
+plotRF(mapthis3, chr=2)
