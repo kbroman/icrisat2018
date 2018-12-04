@@ -212,3 +212,16 @@ mapthis3 <- switch.order(mapthis3,
                          chr=2,
                 c(3:23, 1:2, 24))
 plotRF(mapthis3, chr=2)
+rip2 <- ripple(mapthis3, chr=2, window=7)
+summary(rip2)
+mapthis3 <- switch.order(mapthis3,
+                         chr=2,
+                         rip2[2,])
+rip2b <- ripple(mapthis3, chr=2, window=7)
+summary(rip2b)
+# plot rec fracs again
+plotRF(mapthis3)
+
+# final estimate of genetic map
+map <- est.map(mapthis, error.prob=0.005, 
+               map.function="k")
