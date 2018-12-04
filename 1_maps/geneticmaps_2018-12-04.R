@@ -172,6 +172,11 @@ rip5 <- ripple(mapthis3, chr=5, window=4,
                error.prob=0.005)
 summary(rip5) # this says that the 2nd order (switching 8 and 9) is better
 plotRF(mapthis3)
+# switch to the other order
+head(rip5)
+mapthis3 <- switch.order(mapthis3,
+                         chr=5,
+                         rip5[2,])
 
 # linkage group 4
 mapthis3 <- orderMarkers(mapthis3, chr=4)
