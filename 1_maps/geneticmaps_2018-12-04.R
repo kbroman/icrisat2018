@@ -172,3 +172,8 @@ rip5 <- ripple(mapthis3, chr=5, window=4,
                error.prob=0.005)
 summary(rip5)
 plotRF(mapthis3)
+
+# linkage group 4
+mapthis3 <- orderMarkers(mapthis3, chr=4)
+rip4 <- ripple(mapthis3, chr=4, window=8)
+summary(rip4)    
