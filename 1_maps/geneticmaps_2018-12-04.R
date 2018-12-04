@@ -47,3 +47,8 @@ hist(cg, breaks=100)
 rug(cg)
 # get the row and column of values > 0.9
 which(cg > 0.9 & !is.na(cg), arr.ind=TRUE)
+
+# how similar are they?
+g <- pull.geno(mapthis)
+table(g[144,], g[292,]) # note 1=AA, 2=AB, 3=BB
+cg[144,292] # share 96.7% of genotypes
