@@ -39,3 +39,6 @@ bad_markers <- names(nt_mar)[nt_mar < 200]
 bad_markers
 mapthis <- drop.markers(mapthis, bad_markers)
 nmar(mapthis)
+
+# look for sample duplicates
+cg <- comparegeno(mapthis)
