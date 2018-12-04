@@ -170,7 +170,7 @@ summary(rip5b)
 rip5 <- ripple(mapthis3, chr=5, window=4, 
                method="likelihood",
                error.prob=0.005)
-summary(rip5)
+summary(rip5) # this says that the 2nd order (switching 8 and 9) is better
 plotRF(mapthis3)
 
 # linkage group 4
