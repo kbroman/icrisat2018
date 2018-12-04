@@ -223,5 +223,14 @@ summary(rip2b)
 plotRF(mapthis3)
 
 # final estimate of genetic map
-map <- est.map(mapthis, error.prob=0.005, 
+map <- est.map(mapthis3, error.prob=0.005, 
                map.function="k")
+plot(map)
+plot(map, show.marker.names = TRUE)
+
+# could look further for problem markers...
+
+# count crossovers in individuals
+n_xo <- countXO(mapthis3)
+plot(n_xo)
+sort(n_xo, decreasing=TRUE)[1:10]
