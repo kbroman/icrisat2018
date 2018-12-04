@@ -2,4 +2,4 @@
 # Live coding at ICRISAT workshop 2018-12-06
 #
 # largely following https://kbroman.org/qtl2/assets/vignettes/user_guide.html
-# latest version of this script at https://bit.ly/mpp2018
+# latest version of this script at https://bit.ly/rqtl2_2018
