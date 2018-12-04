@@ -150,3 +150,6 @@ plotRF(mapthis3)
 # plot of all rec fracs against all lods
 rf <- pull.rf(mapthis3)
 lod <- pull.rf(mapthis3, "lod")
+plot(as.numeric(rf), as.numeric(lod))
+
+# so now on to marker order
