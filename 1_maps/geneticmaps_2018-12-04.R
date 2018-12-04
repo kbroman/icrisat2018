@@ -101,3 +101,4 @@ checkAlleles(mapthis)
 rf <- pull.rf(mapthis)
 lod <- pull.rf(mapthis, "lod")
 plot(as.numeric(rf), as.numeric(lod))
+rf[1:5, 1:5]
