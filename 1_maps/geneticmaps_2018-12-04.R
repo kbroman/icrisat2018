@@ -108,3 +108,7 @@ rf[1:5, 1:5]
 lg <- formLinkageGroups(mapthis, max.rf=0.35, min.lod=10)
 head(lg)
 table(lg[,2])
+
+# play around particularly with min.lod
+lg_lod3 <- formLinkageGroups(mapthis, max.rf=0.35, min.lod=3)
+table(lg_lod3[,2])
