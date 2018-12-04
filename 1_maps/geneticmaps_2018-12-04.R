@@ -16,3 +16,10 @@ nind(mapthis)
 nmar(mapthis)
 
 ## data diagnostics
+# plot of missing data pattern
+plotMissing(mapthis)
+
+# plot of the genotypes
+geno.image(mapthis)
+
+# number of genotypes per individual
