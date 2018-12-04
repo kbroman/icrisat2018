@@ -137,3 +137,11 @@ geno.crosstab(mapthis2, mn4[1], mn5[1])
 # swap the alleles at markers on lg 5, 7-12
 toswitch <- markernames(mapthis2, chr=c(5, 7:12))
 mapthis2 <- switchAlleles(mapthis2, toswitch)
+
+# re-estimate the recombination fractions
+mapthis2 <- est.rf(mapthis2)
+lg_again <- formLinkageGroups(mapthis2, max.rf=0.35, min.lod=10)
+table(lg_again[,2])
+# rearrange markers again
+mapthis3 <- formLinkageGroups(mapthis2, max.rf=0.35, min.lod=30,
+                              reorgMarkers=TRUE)
