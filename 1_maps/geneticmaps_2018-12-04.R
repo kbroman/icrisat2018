@@ -78,3 +78,10 @@ bad_markers <- rownames(gt)[gt$P.value < 1e-10]
 mapthis <- drop.markers(mapthis, bad_markers)
 
 # genotype frequencies in the individuals
+g <- pull.geno(mapthis)
+dim(g)
+gfreq <- matrix(ncol=3, nrow=nrow(g))
+for(i in 1:3) {
+   gfreq[,i] <- rowMeans( g == i, na.rm =TRUE)
+}
+head(gfreq)
