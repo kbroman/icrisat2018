@@ -68,3 +68,7 @@ diag(d) <- 0
 d[1:5,1:5]
 hclust_out <- hclust( as.dist(d) )
 plot(hclust_out)
+
+# look for segregation distortion
+gt <- geno.table(mapthis)
+head(gt)
