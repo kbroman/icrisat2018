@@ -160,3 +160,15 @@ factorial(nmar(mapthis3))/2
 # start with linkage group 5
 mapthis3 <- orderMarkers(mapthis3, chr=5)
 pull.map(mapthis3, chr=5)
+
+# further explore marker order on chr 5
+rip5 <- ripple(mapthis3, chr=5, window=7)
+summary(rip5)
+rip5b <- ripple(mapthis3, chr=5, window=9)
+summary(rip5b)
+
+rip5 <- ripple(mapthis3, chr=5, window=4, 
+               method="likelihood",
+               error.prob=0.005)
+summary(rip5)
+plotRF(mapthis3)
