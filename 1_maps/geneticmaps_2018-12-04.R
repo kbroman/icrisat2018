@@ -23,3 +23,9 @@ plotMissing(mapthis)
 geno.image(mapthis)
 
 # number of genotypes per individual
+nt_ind <- ntyped(mapthis)
+plot(nt_ind)
+
+# number of genotypes per marker
+nt_mar <- ntyped(mapthis, "mar")
+plot(nt_mar)
