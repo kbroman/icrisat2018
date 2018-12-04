@@ -234,3 +234,10 @@ plot(map, show.marker.names = TRUE)
 n_xo <- countXO(mapthis3)
 plot(n_xo)
 sort(n_xo, decreasing=TRUE)[1:10]
+
+# drop those individuals
+mapthis4 <- subset(mapthis3, 
+                   ind=(n_xo < 30))
+map <- est.map(mapthis4, error.prob=0.005, 
+               map.function="k")
+plotMap(map)
