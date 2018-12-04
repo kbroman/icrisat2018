@@ -143,5 +143,10 @@ mapthis2 <- est.rf(mapthis2)
 lg_again <- formLinkageGroups(mapthis2, max.rf=0.35, min.lod=10)
 table(lg_again[,2])
 # rearrange markers again
-mapthis3 <- formLinkageGroups(mapthis2, max.rf=0.35, min.lod=30,
+mapthis3 <- formLinkageGroups(mapthis2, max.rf=0.35, min.lod=10,
                               reorgMarkers=TRUE)
+plotRF(mapthis3)
+
+# plot of all rec fracs against all lods
+rf <- pull.rf(mapthis3)
+lod <- pull.rf(mapthis3, "lod")
