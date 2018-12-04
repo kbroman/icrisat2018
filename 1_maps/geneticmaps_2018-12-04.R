@@ -44,3 +44,4 @@ nmar(mapthis)
 cg <- comparegeno(mapthis)
 cg[1:5,1:5]
 hist(cg, breaks=100)
+rug(cg)
