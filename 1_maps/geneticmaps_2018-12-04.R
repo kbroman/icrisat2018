@@ -133,3 +133,7 @@ mn4
 mn5
 # marker x marker genotype table
 geno.crosstab(mapthis2, mn4[1], mn5[1])
+
+# swap the alleles at markers on lg 5, 7-12
+toswitch <- markernames(mapthis2, chr=c(5, 7:12))
+mapthis2 <- switchAlleles(mapthis2, toswitch)
