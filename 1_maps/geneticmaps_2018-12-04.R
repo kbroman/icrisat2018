@@ -99,4 +99,5 @@ checkAlleles(mapthis)
 
 # pull out all recombination fractions and LOD scores
 rf <- pull.rf(mapthis)
-lod <- pull.rf(mapthis)
+lod <- pull.rf(mapthis, "lod")
+plot(as.numeric(rf), as.numeric(lod))
