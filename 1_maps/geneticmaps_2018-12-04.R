@@ -35,3 +35,7 @@ mapthis <- subset(mapthis, ind=(nt_ind > 50))
 nind(mapthis)
 
 # omit markers that have < 200 genotypes
+bad_markers <- names(nt_mar)[nt_mar < 200]
+bad_markers
+mapthis <- drop.markers(mapthis, bad_markers)
+nmar(mapthis)
