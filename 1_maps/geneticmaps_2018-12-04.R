@@ -123,3 +123,13 @@ table(lg_lod50[,2])
 mapthis2 <- formLinkageGroups(mapthis, max.rf=0.35, min.lod=10, 
                               reorgMarkers=TRUE)
 plotRF(mapthis2)
+
+# looks like linkage groups 5, 7, 8, 9, 10, 11, 12 need alleles swapped
+
+# look at a marker on lg 4 and on lg 5
+mn4 <- markernames(mapthis2, chr=4)
+mn5 <- markernames(mapthis2, chr=5)
+mn4
+mn5
+# marker x marker genotype table
+geno.crosstab(mapthis2, mn4[1], mn5[1])
