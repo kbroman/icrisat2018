@@ -105,3 +105,5 @@ rf[1:5, 1:5]
 
 # there are messed up markers
 # but we'll proceed and fix them later
+lg <- formLinkageGroups(mapthis, max.rf=0.35, min.lod=10)
+head(lg)
