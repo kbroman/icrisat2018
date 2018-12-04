@@ -29,3 +29,9 @@ plot(nt_ind)
 # number of genotypes per marker
 nt_mar <- ntyped(mapthis, "mar")
 plot(nt_mar)
+
+# omit individuals that have > 50% missing data
+mapthis <- subset(mapthis, ind=(nt_ind > 50))
+nind(mapthis)
+
+# omit markers that have < 200 genotypes
