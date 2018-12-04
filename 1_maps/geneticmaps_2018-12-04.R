@@ -73,3 +73,6 @@ plot(hclust_out)
 gt <- geno.table(mapthis)
 head(gt)
 gt[gt$P.value < 0.05/nrow(gt), ]
+# throw out markers with P.values < 10^-10
+bad_markers <- rownames(gt)[gt$P.value < 1e-10]
+mapthis <- drop.markers(mapthis, bad_markers)
