@@ -42,3 +42,4 @@ nmar(mapthis)
 
 # look for sample duplicates
 cg <- comparegeno(mapthis)
+cg[1:5,1:5]
