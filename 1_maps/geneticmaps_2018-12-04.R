@@ -9,3 +9,8 @@ library(qtl)
 
 # load example data
 data(mapthis)
+
+# summary
+summary(mapthis)
+nind(mapthis)
+nmar(mapthis)
