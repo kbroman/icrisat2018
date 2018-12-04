@@ -85,3 +85,6 @@ for(i in 1:3) {
    gfreq[,i] <- rowMeans( g == i, na.rm =TRUE)
 }
 head(gfreq)
+plot(gfreq[,1])
+plot(gfreq[,2])
+plot(gfreq[,3])
