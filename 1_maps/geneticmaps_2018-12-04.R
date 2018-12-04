@@ -14,3 +14,5 @@ data(mapthis)
 summary(mapthis)
 nind(mapthis)
 nmar(mapthis)
+
+## data diagnostics
