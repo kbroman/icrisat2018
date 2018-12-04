@@ -229,6 +229,7 @@ plot(map)
 plot(map, show.marker.names = TRUE)
 
 # could look further for problem markers...
+# see the function "dropone"
 
 # count crossovers in individuals
 n_xo <- countXO(mapthis3)
