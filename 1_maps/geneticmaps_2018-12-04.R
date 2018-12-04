@@ -202,3 +202,8 @@ summary(rip)
 mapthis3 <- orderMarkers(mapthis3, chr=1)
 rip <- ripple(mapthis3, chr=1, window=7)
 summary(rip)
+
+plotRF(mapthis3)
+
+# need to fix LG 2 : markers 1 and 2
+#    belong near the end
