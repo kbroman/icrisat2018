@@ -45,4 +45,5 @@ cg <- comparegeno(mapthis)
 cg[1:5,1:5]
 hist(cg, breaks=100)
 rug(cg)
+# get the row and column of values > 0.9
 which(cg > 0.9 & !is.na(cg), arr.ind=TRUE)
