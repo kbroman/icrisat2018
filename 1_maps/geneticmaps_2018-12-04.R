@@ -153,3 +153,10 @@ lod <- pull.rf(mapthis3, "lod")
 plot(as.numeric(rf), as.numeric(lod))
 
 # so now on to marker order
+nmar(mapthis3)
+# number of marker orders
+factorial(nmar(mapthis3))/2
+
+# start with linkage group 5
+mapthis3 <- orderMarkers(mapthis3, chr=5)
+pull.map(mapthis3, chr=5)
