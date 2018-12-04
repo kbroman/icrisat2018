@@ -119,3 +119,6 @@ table(lg_lod20[,2])
 lg_lod50 <- formLinkageGroups(mapthis, max.rf=0.35, min.lod=50)
 table(lg_lod50[,2])
 
+# reorganize the markers into linkage groups
+mapthis2 <- formLinkageGroups(mapthis, max.rf=0.35, min.lod=10, 
+                              reorgMarkers=TRUE)
