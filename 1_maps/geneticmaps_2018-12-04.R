@@ -102,3 +102,6 @@ rf <- pull.rf(mapthis)
 lod <- pull.rf(mapthis, "lod")
 plot(as.numeric(rf), as.numeric(lod))
 rf[1:5, 1:5]
+
+# there are messed up markers
+# but we'll proceed and fix them later
