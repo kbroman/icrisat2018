@@ -45,3 +45,4 @@ cg <- comparegeno(mapthis)
 cg[1:5,1:5]
 hist(cg, breaks=100)
 rug(cg)
+which(cg > 0.9 & !is.na(cg), arr.ind=TRUE)
