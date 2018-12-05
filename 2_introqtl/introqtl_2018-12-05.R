@@ -11,3 +11,6 @@ library(qtl)
 sug <- read.cross("csv", "http://rqtl.org", "sug.csv",
                   genotypes=c("CC", "CB", "BB"), 
                   alleles=c("C", "B"))
+
+# summary of data
+summary(sug)
