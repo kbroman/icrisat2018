@@ -90,3 +90,9 @@ sug <- sim.geno(sug, step=1, n.draws=32)
 out.all.imp <- scanone(sug, method="imp",
                        pheno.col=1:4)
 plot(out.all, out.all.hk, out.all.imp)
+
+
+# [lunch]
+
+# install the R/qtlcharts package
+install.packages("qtlcharts")
