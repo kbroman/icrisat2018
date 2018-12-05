@@ -215,3 +215,7 @@ pen
 
 # stepwise analysis, including interactions
 out.sq2 <- stepwiseqtl(sug, method="hk", penalties=pen)
+
+# lod support interval
+lodint(out.sq2, qtl=1)
+lodint(out.sq2, qtl=2)
