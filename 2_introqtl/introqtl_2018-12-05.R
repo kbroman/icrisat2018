@@ -67,3 +67,4 @@ summary(operm.all)
 
 summary(out.all, perms=operm.all, alpha=0.2,
         format="tabByChr", pvalues=TRUE)
+
