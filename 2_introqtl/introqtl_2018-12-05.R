@@ -42,3 +42,6 @@ operm
 summary(operm) 
 # 20% significance threshold
 summary(operm, alpha=0.2)
+
+# significant peaks in QTL results
+summary(out.em, perms=operm, alpha=0.2)
