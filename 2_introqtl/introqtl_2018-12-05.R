@@ -21,3 +21,10 @@ plotMap(sug)
 nind(sug)
 nmar(sug)
 totmar(sug)
+
+# histograms of phenotypes
+plotPheno(sug, pheno.col=1)
+plotPheno(sug, pheno.col="bw")
+
+# first step in QTL analysis: calculate genotype probabilities
+sug <- calc.genoprob(sug, step=1)
