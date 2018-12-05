@@ -60,4 +60,5 @@ legend("topleft", lwd=2,
        col=c("black", "blue", "red", "green"),
        phenames(sug)[1:4])
 
-# permutation test for a
+# permutation test for all 4 traits
+operm.all <- scanone(sug, pheno.col = 1:4, n.perm=1000, n.cluster=8)
