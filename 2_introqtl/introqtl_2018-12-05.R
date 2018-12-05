@@ -177,3 +177,7 @@ max(out2) # best overall model
 qtl_c7 <- makeqtl(sug, chr=7, pos=46.7, what="prob")
 # scan for an additional QTL
 out_c7plus1 <- addqtl(sug, qtl=qtl_c7, method="hk")
+
+plot(out_c7plus1)
+out.hk <- scanone(sug, method="hk")
+plot(out.hk, col="green", add=TRUE)
