@@ -8,6 +8,7 @@
 library(qtl)
 
 # import some QTL mapping data
+# example data file at http://rqtl.org/sug.csv
 sug <- read.cross("csv", "http://rqtl.org", "sug.csv",
                   genotypes=c("CC", "CB", "BB"), 
                   alleles=c("C", "B"))
