@@ -68,3 +68,6 @@ summary(operm.all)
 summary(out.all, perms=operm.all, alpha=0.2,
         format="tabByChr", pvalues=TRUE)
 
+# lod support intervals
+lodint(out.all, lodcolumn=1, chr=7)
+lodint(out.all, lodcolumn=1, chr=7, drop=2)
