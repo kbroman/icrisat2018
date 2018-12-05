@@ -115,3 +115,5 @@ plotMap(sug, show.marker.names=TRUE)
 
 # non-parametric genome scan for the bp trait
 out.np <- scanone(sug, model="np")
+plot(out.np)
+plot(out.em, col="Orchid", lty=2, add=TRUE)
