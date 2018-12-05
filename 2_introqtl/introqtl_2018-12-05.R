@@ -44,4 +44,4 @@ summary(operm)
 summary(operm, alpha=0.2)
 
 # significant peaks in QTL results
-summary(out.em, perms=operm, alpha=0.5)
+summary(out.em, perms=operm, alpha=0.5, pvalues=TRUE)
