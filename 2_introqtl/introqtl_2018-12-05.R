@@ -108,4 +108,4 @@ iplotScanone(out.all)
 iplotScanone(out.all, sug, chr=c(2,7,11,15))
 iplotScanone(out.all, sug, chr=c(2,7,11,15), 
              lodcolumn=2, pheno.col=2)
-iplotScanone(out.all, sug, chr=c(2,7,11,15))
+iplotScanone(out.all, sug, chr=c(2,7,11,15),pxgtype="raw")
