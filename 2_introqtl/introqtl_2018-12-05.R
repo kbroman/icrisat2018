@@ -134,3 +134,6 @@ plot(out.hw.bwadd)
 out.hw.bwint <- scanone(sug, pheno.col="heart_wt",
                         addcovar=bw, intcovar=bw)
 plot(out.hw.bwint)
+
+out.hw.bwi <- out.hw.bwint - out.hw.bwadd
+plot(out.hw.bwi)
