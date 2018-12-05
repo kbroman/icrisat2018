@@ -55,3 +55,4 @@ head(out.all)
 
 # plot the LOD curves
 plot(out.all, lodcolumn=1:3)
+plot(out.all, lodcolumn=4, col="green", add=TRUE)
