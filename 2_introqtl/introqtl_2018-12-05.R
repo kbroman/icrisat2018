@@ -127,5 +127,10 @@ plot(out.bin, col="green", lty=3, add=TRUE)
 
 # qtl scan with covariates
 bw <- pull.pheno(sug, pheno.col="bw")
-out.hr.bwadd <- scanone(sug, pheno.col="heart_wt",
+out.hw.bwadd <- scanone(sug, pheno.col="heart_wt",
                         addcovar=bw)
+plot(out.hw.bwadd)
+
+out.hw.bwint <- scanone(sug, pheno.col="heart_wt",
+                        addcovar=bw, intcovar=bw)
+plot(out.hw.bwint)
