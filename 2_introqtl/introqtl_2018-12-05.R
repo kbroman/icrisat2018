@@ -208,3 +208,5 @@ summary(out.int)
 # stepwiseqtl to automatically build multiple-qtl models
 out.sq1 <- stepwiseqtl(sug, method="hk", penalties=3.5,
                        additive.only=TRUE)
+
+
