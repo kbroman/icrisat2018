@@ -52,3 +52,6 @@ summary(out.em, perms=operm, alpha=0.5, pvalues=TRUE)
 phenames(sug)
 out.all <- scanone(sug, pheno.col=1:4)
 head(out.all)
+
+# plot the LOD curves
+plot(out.all, lodcolumn=1:3)
