@@ -124,3 +124,8 @@ bp_bin <- (bp > median(bp, na.rm=TRUE))*1
 out.bin <- scanone(sug, pheno.col=bp_bin,
                    model="binary")
 plot(out.bin, col="green", lty=3, add=TRUE)
+
+# qtl scan with covariates
+bw <- pull.pheno(sug, pheno.col="bw")
+out.hr.bwadd <- scanone(sug, pheno.col="heart_wt",
+                        addcovar=bw)
