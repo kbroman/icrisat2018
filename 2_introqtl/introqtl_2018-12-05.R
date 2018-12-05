@@ -117,3 +117,9 @@ plotMap(sug, show.marker.names=TRUE)
 out.np <- scanone(sug, model="np")
 plot(out.np)
 plot(out.em, col="Orchid", lty=2, add=TRUE)
+
+# create a binary trait as bp > median
+bp <- pull.pheno(sug, pheno.col="bp")
+bp_bin <- (bp > median(bp, na.rm=TRUE))*1
+out.bin <- scanone(sug, pheno.col=bp_bin,
+                   model="binary")
