@@ -16,3 +16,8 @@ sug <- read.cross("csv", "http://rqtl.org", "sug.csv",
 summary(sug)
 plot(sug)
 plotMissing(sug) # black pixels = missing genotypes
+plotMap(sug)
+
+nind(sug)
+nmar(sug)
+totmar(sug)
