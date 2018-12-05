@@ -33,3 +33,7 @@ sug <- calc.genoprob(sug, step=1)
 out.em <- scanone(sug)
 plot(out.em)
 phenames(sug)
+
+# permutation test
+operm <- scanone(sug, n.perm=1000)
+operm
