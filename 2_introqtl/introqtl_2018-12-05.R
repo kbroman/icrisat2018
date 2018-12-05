@@ -192,3 +192,7 @@ plot(out_c15plus1, out.hk, col=c("black", "green"))
 qtl_7n15 <- makeqtl(sug, c(7,15), c(46.7, 14), what="prob")
 out_7n15plus1 <- addqtl(sug, qtl=qtl_7n15)
 plot(out_7n15plus1)
+
+# fit two qtl model and look at QTL effects
+out.fq <- fitqtl(sug, qtl=qtl_7n15, method="hk")
+summary(out.fq)
