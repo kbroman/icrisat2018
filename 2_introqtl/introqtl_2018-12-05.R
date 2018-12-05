@@ -139,3 +139,5 @@ out.hw.bwi <- out.hw.bwint - out.hw.bwadd
 plot(out.hw.bwi)
 
 # two-dimensional scan 
+out2 <- scantwo(sug, method="hk", verbose=FALSE)
+plot(out2)
