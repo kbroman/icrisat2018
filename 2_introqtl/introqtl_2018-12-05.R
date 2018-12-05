@@ -37,3 +37,8 @@ phenames(sug)
 # permutation test
 operm <- scanone(sug, n.perm=1000)
 operm
+
+# 5% and 10% significance thresholds
+summary(operm) 
+# 20% significance threshold
+summary(operm, alpha=0.2)
