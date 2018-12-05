@@ -96,3 +96,6 @@ plot(out.all, out.all.hk, out.all.imp)
 
 # install the R/qtlcharts package
 install.packages("qtlcharts")
+
+# load the R/qtlcharts package
+library(qtlcharts)
