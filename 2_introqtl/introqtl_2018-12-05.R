@@ -163,3 +163,9 @@ load(url("http://rqtl.org/various.RData"))
 
 # significance thresholds from 2d scan
 summary(operm2)
+
+# what pairs of chromosomes are interesting?
+summary(out2, perms=operm2, alpha=0.2, pvalues=TRUE)
+
+
+save.image()
