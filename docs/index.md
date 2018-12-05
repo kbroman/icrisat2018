@@ -19,8 +19,6 @@ R/qtl](https://www.icrisat.org/event/2nd-international-workshop-on-advanced-r-r-
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/3_multiqtl.pdf)
 [![R code](icons16/R-icon.png)](https://github.com/kbroman/icrisat2018/blob/master/3_multiqtl/3_multiqtl.R)
 
-  - Live coding: <https://bit.ly/multiqtl2018>
-
 - Multi-parent populations
 [![pdf](icons16/pdf-icon.png)](https://kbroman.org/icrisat2018/4_mpp.pdf)
 [![R code](icons16/R-icon.png)](https://github.com/kbroman/icrisat2018/blob/master/4_mpp/4_mpp.R)
