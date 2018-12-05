@@ -102,3 +102,7 @@ library(qtlcharts)
 
 # interactive plot of genetic map
 iplotMap(sug)
+
+# interactive LOD curve plot
+iplotScanone(out.all)
+iplotScanone(out.all, sug, chr=c(2,7,11,15))
