@@ -30,3 +30,5 @@ plotPheno(sug, pheno.col="bw")
 sug <- calc.genoprob(sug, step=1)
 
 # 2nd step in QTL analysis: do the LOD score calculations by interval mapping
+out.em <- scanone(sug)
+plot(out.em)
