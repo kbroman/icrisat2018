@@ -169,3 +169,4 @@ summary(out2, perms=operm2, alpha=0.2, pvalues=TRUE)
 
 # in case R crashes, it can be useful to have saved your work
 save.image()
+
