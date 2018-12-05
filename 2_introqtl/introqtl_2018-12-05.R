@@ -204,3 +204,4 @@ iplotScanone(out.hk, sug, chr=c(7,15))
 # look for interactions
 out.int <- addint(sug, qtl=qtl_7n15, method="hk")
 summary(out.int)
+
