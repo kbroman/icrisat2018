@@ -14,3 +14,4 @@ sug <- read.cross("csv", "http://rqtl.org", "sug.csv",
 
 # summary of data
 summary(sug)
+plot(sug)
