@@ -138,6 +138,15 @@ plot(out.hw.bwint)
 out.hw.bwi <- out.hw.bwint - out.hw.bwadd
 plot(out.hw.bwi)
 
+# [killed RStudio; re-load everything]
+library(qtl)
+sug <- read.cross("csv", "http://rqtl.org", "sug.csv",
+                  genotypes=c("CC", "CB", "BB"), 
+                  alleles=c("C", "B"))
+
+# re-run calc.genoprob, using step=2.5
+sug <- calc.genoprob(sug, step=2.5)
+
 # two-dimensional scan 
 out2 <- scantwo(sug, method="hk", verbose=FALSE)
 plot(out2)
