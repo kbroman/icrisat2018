@@ -82,4 +82,5 @@ operm.all.hk <- scanone(sug, pheno.col=1:4,
                         method="hk", 
                         n.perm=1000,
                         n.cluster=8)
-plot(out.all.hk, )
+plot(out.all, out.all.hk, lodcolumn=1, 
+     lty=1:2, col=c("slateblue", "violetred"))
