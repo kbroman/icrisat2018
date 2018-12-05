@@ -150,3 +150,10 @@ sug <- calc.genoprob(sug, step=2.5)
 # two-dimensional scan 
 out2 <- scantwo(sug, method="hk", verbose=FALSE)
 plot(out2)
+
+# show fv1 in lower triangle
+plot(out2, lower="fv1")
+
+# permutation test with 2d scan
+##  operm2 <- scantwo(sug, method="hk", n.perm=1000)  # often has problems
+## operm2 <- scantwopermhk(sug, n.perm=1000)          # better but really slow
