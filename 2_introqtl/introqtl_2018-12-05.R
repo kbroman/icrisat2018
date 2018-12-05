@@ -52,6 +52,7 @@ summary(out.em, perms=operm, alpha=0.5, pvalues=TRUE)
 phenames(sug)
 out.all <- scanone(sug, pheno.col=1:4)
 head(out.all)
+dim(out.all)
 
 # plot the LOD curves
 plot(out.all, lodcolumn=1:3)
@@ -62,3 +63,4 @@ legend("topleft", lwd=2,
 
 # permutation test for all 4 traits
 operm.all <- scanone(sug, pheno.col = 1:4, n.perm=1000, n.cluster=8)
+summary(operm.all)
