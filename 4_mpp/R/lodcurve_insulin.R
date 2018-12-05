@@ -42,8 +42,11 @@ if(file.exists(file)) {
 pdf("../Figs/lodcurve_insulin.pdf", width=10, height=6.75, pointsize=14)
 par(fg=fgcolor, col=fgcolor, col.axis=fgcolor, col.lab=fgcolor, bg=bgcolor)
 par(mar=c(5.1,4.1,2.1,1.1))
-plot(out, col=color[1], ylab="LOD score", bandcol=bandcolor, incl.markers=FALSE, yaxs="i",
+plot(out, col=color[1], ylab="LOD score", incl.markers=FALSE, yaxs="i",
      ylim=c(0, 9))
+tmp <- out
+tmp[tmp[,1] %in% seq(1, 19, by=2),3] <- NA
+plot(tmp, col="green4", add=TRUE)
 abline(h=quantile(operm, 0.95), lty=2, col=color[2])
 box()
 dev.off()
@@ -51,8 +54,11 @@ dev.off()
 pdf("../Figs/lodcurve_insulin_with_effects.pdf", width=10, height=6.75, pointsize=14)
 par(fg=fgcolor, col=fgcolor, col.axis=fgcolor, col.lab=fgcolor, bg=bgcolor)
 par(mar=c(5.1,4.1,2.1,1.1))
-plot(out, col=color[1], ylab="LOD score", bandcol=bandcolor, incl.markers=FALSE, yaxs="i",
+plot(out, col=color[1], ylab="LOD score", incl.markers=FALSE, yaxs="i",
      ylim=c(0, 9))
+tmp <- out
+tmp[tmp[,1] %in% seq(1, 19, by=2),3] <- NA
+plot(tmp, col="green4", add=TRUE)
 abline(h=quantile(operm, 0.95), lty=2, col=color[2])
 yd <- 1
 xl <- xaxisloc.scanone(out, c(4,8), c(0,0))
