@@ -112,3 +112,6 @@ iplotScanone(out.all, sug, chr=c(2,7,11,15),pxgtype="raw")
 
 # show marker names
 plotMap(sug, show.marker.names=TRUE)
+
+# non-parametric genome scan for the bp trait
+out.np <- scanone(sug, model="np")
