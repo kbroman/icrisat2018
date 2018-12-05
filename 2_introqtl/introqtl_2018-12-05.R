@@ -99,3 +99,6 @@ install.packages("qtlcharts")
 
 # load the R/qtlcharts package
 library(qtlcharts)
+
+# interactive plot of genetic map
+iplotMap(sug)
