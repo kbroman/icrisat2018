@@ -212,3 +212,6 @@ out.sq1 <- stepwiseqtl(sug, method="hk", penalties=3.5,
 # calculate the penalties
 pen <- calc.penalties(operm2)
 pen
+
+# stepwise analysis, including interactions
+out.sq2 <- stepwiseqtl(sug, method="hk", penalties=pen)
