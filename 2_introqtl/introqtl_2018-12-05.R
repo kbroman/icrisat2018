@@ -84,3 +84,9 @@ operm.all.hk <- scanone(sug, pheno.col=1:4,
                         n.cluster=8)
 plot(out.all, out.all.hk, lodcolumn=1, 
      lty=1:2, col=c("slateblue", "violetred"))
+
+# imputation method
+sug <- sim.geno(sug, step=1, n.draws=32)
+out.all.imp <- scanone(sug, method="imp",
+                       pheno.col=1:4)
+plot(out.all, out.all.hk, out.all.imp)
