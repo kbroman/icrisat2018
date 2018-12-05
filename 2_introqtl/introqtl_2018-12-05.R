@@ -71,3 +71,15 @@ summary(out.all, perms=operm.all, alpha=0.2,
 # lod support intervals
 lodint(out.all, lodcolumn=1, chr=7)
 lodint(out.all, lodcolumn=1, chr=7, drop=2)
+lodint(out.all, lodcolumn=1, chr=7, drop=1)
+lodint(out.all, lodcolumn=1, chr=15)
+
+# Haley-Knott regression
+out.all.hk <- scanone(sug, pheno.col=1:4,
+                      method="hk")
+# permutation test of that
+operm.all.hk <- scanone(sug, pheno.col=1:4,
+                        method="hk", 
+                        n.perm=1000,
+                        n.cluster=8)
+plot(out.all.hk, )
