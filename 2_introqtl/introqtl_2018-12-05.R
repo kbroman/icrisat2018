@@ -51,3 +51,4 @@ summary(out.em, perms=operm, alpha=0.5, pvalues=TRUE)
 # genome scan with multiple traits
 phenames(sug)
 out.all <- scanone(sug, pheno.col=1:4)
+head(out.all)
