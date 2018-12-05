@@ -188,4 +188,7 @@ out_c15plus1 <- addqtl(sug, qtl=qtl_c15)
 par(mfrow=c(1,1)) # clear the multi-panel plot
 plot(out_c15plus1, out.hk, col=c("black", "green"))
 
-# 
+# create QTL model with both chr 7 and chr 15
+qtl_7n15 <- makeqtl(sug, c(7,15), c(46.7, 14), what="prob")
+out_7n15plus1 <- addqtl(sug, qtl=qtl_7n15)
+plot(out_7n15plus1)
