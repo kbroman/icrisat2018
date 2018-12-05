@@ -160,3 +160,6 @@ plot(out2, lower="fv1")
 
 # load previously-calculated permutation results
 load(url("http://rqtl.org/various.RData"))
+
+# significance thresholds from 2d scan
+summary(operm2)
