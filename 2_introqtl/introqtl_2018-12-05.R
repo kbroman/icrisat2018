@@ -38,6 +38,7 @@ phenames(sug)
 # permutation test
 operm <- scanone(sug, n.perm=1000)
 operm
+plot(operm)
 
 # 5% and 10% significance thresholds
 summary(operm) 
@@ -46,3 +47,7 @@ summary(operm, alpha=0.2)
 
 # significant peaks in QTL results
 summary(out.em, perms=operm, alpha=0.5, pvalues=TRUE)
+
+# genome scan with multiple traits
+phenames(sug)
+out.all <- scanone(sug, pheno.col=1:4)
