@@ -64,3 +64,6 @@ legend("topleft", lwd=2,
 # permutation test for all 4 traits
 operm.all <- scanone(sug, pheno.col = 1:4, n.perm=1000, n.cluster=8)
 summary(operm.all)
+
+summary(out.all, perms=operm.all, alpha=0.2,
+        format="tabByChr", pvalues=TRUE)
