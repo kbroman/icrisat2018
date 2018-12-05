@@ -196,3 +196,10 @@ plot(out_7n15plus1)
 # fit two qtl model and look at QTL effects
 out.fq <- fitqtl(sug, qtl=qtl_7n15, method="hk", get.ests=TRUE)
 summary(out.fq)
+
+# look at the picture again
+library(qtlcharts)
+iplotScanone(out.hk, sug, chr=c(7,15))
+
+# look for interactions
+
