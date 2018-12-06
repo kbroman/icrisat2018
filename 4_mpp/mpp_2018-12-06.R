@@ -97,3 +97,6 @@ plot_pxg(g, sug2$pheno[,1], SEmult=2, sort=FALSE)
 # just show the confidence intervals
 plot_pxg(g, sug2$pheno[,1], SEmult=2, 
          omit_points=TRUE, sort=FALSE)
+
+######
+
