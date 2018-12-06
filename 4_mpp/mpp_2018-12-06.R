@@ -116,3 +116,19 @@ pr <- calc_genoprob(arab, gmap, error_prob=0.002,
                     cores=0)
 
 # plot genotype probabilities for one line, one chr
+plot_genoprob(pr, pmap, ind=1, chr=1)
+# just show genotypes that achieved Prob > 0.25
+plot_genoprob(pr, pmap, ind=1, chr=1, threshold=0.25)
+plot_genoprob(pr, pmap, ind=100, chr=1, threshold=0.25)
+
+# reconstruct the entire genomes
+m <- maxmarg(pr, minprob=0.5)
+# plot reconstructed genome for one individual
+plot_onegeno(m, pmap, ind=1)
+# pick 19 random colors
+color19 <- sample(colors(), 19)
+# plot reconstructed genome for one individual
+plot_onegeno(m, pmap, ind=1, col=color19)
+plot_onegeno(m, pmap, ind=101, col=color19)
+
+# QTL analysis
