@@ -56,3 +56,10 @@ k_loco <- calc_kinship(pr, "loco")
 
 # use these in scan1() function (cores = 0 means use all CPUs)
 out_lmm <- scan1(pr, sug2$pheno[,1:4], k, cores=0)
+out_loco <- scan1(pr, sug2$pheno[,1:4], k_loco, cores=0)
+
+# plot the results for first phenotype
+plot(out, gmap)
+plot(out_lmm, gmap, col="orchid", add=TRUE)
+plot(out_loco, gmap, col="green3", add=TRUE, lty=2)
+
