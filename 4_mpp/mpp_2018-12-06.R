@@ -99,4 +99,7 @@ plot_pxg(g, sug2$pheno[,1], SEmult=2,
          omit_points=TRUE, sort=FALSE)
 
 ######
+# look at some magic data, in Arabidopsis
+# from https://github.com/rqtl/qtl2data
+
 
