@@ -84,4 +84,7 @@ plot(eff7, gmap, columns=1:3, col=my_colors,
 # estimated effects just at inferred QTL position
 # where is the QTL?
 max(out, gmap, chr=7)  # position with maximum LOD score
-
+# get inferred genotypes
+g <- maxmarg(pr, gmap, chr=7, pos=47.71, 
+             return_char=TRUE)
+g
