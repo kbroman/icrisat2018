@@ -88,3 +88,4 @@ max(out, gmap, chr=7)  # position with maximum LOD score
 g <- maxmarg(pr, gmap, chr=7, pos=47.71, 
              return_char=TRUE, minprob=0.75)
 g  # output of maxmarg() is BB, CB, CC genotypes
+plot_pxg(g, sug2$pheno[,1])
