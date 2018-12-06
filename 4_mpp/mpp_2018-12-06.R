@@ -74,5 +74,6 @@ for(i in 2:4) {
 # estimating QTL effects
 # chr 7, first phenotype
 eff7 <- scan1coef(pr[,7], sug2$pheno[,1])
-par(mfrow=c(1,1)) # go to back to single panel
-plot(eff7, gmap)
+par(mfrow=c(1,1), mar=c(5.1, 4.1, 1.1, 1.1)) # go to back to single panel
+my_colors <- c("slateblue", "orchid", "green3")
+plot(eff7, gmap, columns=1:3, col=my_colors)
