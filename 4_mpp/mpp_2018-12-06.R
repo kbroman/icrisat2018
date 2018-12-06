@@ -66,7 +66,7 @@ plot(out_loco, gmap, col="green3", add=TRUE, lty=2)
 # plot the other three traits, in separate panels
 par(mfrow=c(3,1), mar=c(3.1,1.1,2.1,0.1))
 for(i in 2:4) {
-    plot(out, gmap, lodcolumn=i, main=columnes(out)[i])
+    plot(out, gmap, lodcolumn=i, main=colnames(out)[i])
     plot(out_lmm, gmap, col="orchid", add=TRUE, lodcolumn=i)
     plot(out_loco, gmap, col="green3", add=TRUE, lty=2, lodcolumn=i)
 }
