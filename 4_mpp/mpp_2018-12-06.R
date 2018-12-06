@@ -88,4 +88,12 @@ max(out, gmap, chr=7)  # position with maximum LOD score
 g <- maxmarg(pr, gmap, chr=7, pos=47.71, 
              return_char=TRUE, minprob=0.75)
 g  # output of maxmarg() is BB, CB, CC genotypes
+# plot phenotype vs genotype
 plot_pxg(g, sug2$pheno[,1])
+# plot phenotype vs genotype
+plot_pxg(g, sug2$pheno[,1], sort=FALSE)
+# include mean +/- 2 SE confidence intervals
+plot_pxg(g, sug2$pheno[,1], SEmult=2, sort=FALSE)
+# just show the confidence intervals
+plot_pxg(g, sug2$pheno[,1], SEmult=2, 
+         omit_points=TRUE, sort=FALSE)
