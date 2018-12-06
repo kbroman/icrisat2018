@@ -28,3 +28,5 @@ gmap <- insert_pseudomarkers(sug2$gmap, step=1)
 pr <- calc_genoprob(sug2, gmap)
 
 
+
+
