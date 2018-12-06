@@ -51,3 +51,7 @@ find_peaks(out, gmap, threshold=thr[1:4], drop=1.5)
 # scan with linear model mixed 
 ## first calculate kinship matrix
 k <- calc_kinship(pr)
+## kinship matrices by "leave one chromosome out" method (LOCO)
+k_loco <- calc_kinship(pr, "loco")
+
+# use these in scan1() function
