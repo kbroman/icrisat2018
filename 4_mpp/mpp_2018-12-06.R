@@ -135,4 +135,14 @@ plot_onegeno(m, pmap, ind=101, col=color19)
 out <- scan1(pr, arab$pheno, cores=0)
 
 # permutation tests
-operm <- scan1perm(pr, arab$pheno, n_perm=100, cores=0)
+operm <- scan1perm(pr, arab$pheno[,1], n_perm=1000, cores=0)
+
+# significance threshold
+summary(operm) # 5% threshold = 10.3
+
+# plot the results for the first phenotype
+plot(out, pmap)
+abline(h=10.3)
+
+# all significant QTL for all phenotypes
+find_peaks(out, pmap, threshold=10.3, drop=1.5)
