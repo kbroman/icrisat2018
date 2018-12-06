@@ -18,3 +18,5 @@ sug2 <- convert2cross2(sug)
 
 # summary functions
 summary(sug2)
+n_ind(sug2)
+n_mar(sug2)
