@@ -34,3 +34,11 @@ head(out) # output is just a matrix
 # plot the LOD curves for the first phenotype
 plot(out, gmap)
 plot(out, gmap, lodcolumn=2, col="orchid", add=TRUE)
+
+# find the QTL peaks
+find_peaks(out, gmap, threshold=4)
+# also include 1.5-LOD support intervals
+find_peaks(out, gmap, threshold=4, drop=1.5)
+
+# permutation test (cores=0 means use all available CPUs)
+operm <- scan1perm(pr, sug2$pheno, n_perm=400, cores=0)
