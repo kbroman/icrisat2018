@@ -20,3 +20,11 @@ sug2 <- convert2cross2(sug)
 summary(sug2)
 n_ind(sug2)
 n_mar(sug2)
+tot_mar(sug2)
+n_pheno(sug2)
+
+# calculate genotype probabilities
+gmap <- insert_pseudomarkers(sug2$gmap, step=1)
+pr <- calc_genoprob(sug2, gmap)
+
+
