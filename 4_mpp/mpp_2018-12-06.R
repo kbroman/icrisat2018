@@ -33,3 +33,4 @@ head(out) # output is just a matrix
 
 # plot the LOD curves for the first phenotype
 plot(out, gmap)
+plot(out, gmap, lodcolumn=2, col="orchid", add=TRUE)
