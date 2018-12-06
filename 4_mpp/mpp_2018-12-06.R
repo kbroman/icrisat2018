@@ -42,3 +42,12 @@ find_peaks(out, gmap, threshold=4, drop=1.5)
 
 # permutation test (cores=0 means use all available CPUs)
 operm <- scan1perm(pr, sug2$pheno, n_perm=400, cores=0)
+summary(operm)
+
+# find_peaks with permutation thresholds
+thr <- summary(operm)
+find_peaks(out, gmap, threshold=thr[1:4], drop=1.5)
+
+# scan with linear model mixed 
+## first calculate kinship matrix
+k <- calc_kinship(pr)
