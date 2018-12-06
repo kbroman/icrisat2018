@@ -742,93 +742,8 @@ How to account for multiple QTL?
 
 
 
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Why R/qtl2?
-\end{minipage}
-
-\vspace{3cm}
-
-\color{mywhite} \smallsize
-
-\hfill \begin{minipage}[t]{9.5in}
-\begin{itemize}
-\itemsep24pt
-\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
-\item High-dimensional data
-  \begin{itemize}
-  \item[] {\color{myblue} \smallersize genotypes and phenotypes}
-  \end{itemize}
-\item More diverse crosses
-  \begin{itemize}
-  \item[] {\color{myblue} \smallersize especially multi-parent populations}
-  \end{itemize}
-\item Linear mixed models
-  \begin{itemize}
-  \item[] {\color{myblue} \smallersize especially in DO/HS/AIL}
-  \end{itemize}
-\end{itemize} \end{minipage}
 
 
-\newpage
-
-\headsize \color{myyellow}
-\hfill\begin{minipage}{5.75in}
-\centering
-R/qtl $\rightarrow$ R/qtl2
-\end{minipage}
-
-\vspace{1cm}
-
-\color{mywhite} \smallsize
-
-\hfill \begin{minipage}[t]{9.5in}
-\begin{itemize}
-\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
-\item See
-  \href{http://kbroman.org/qtl2/assets/vignettes/rqtl_diff.html}{\smallestsize
-    \tt kbroman.org/qtl2/assets/vignettes/rqtl\_diff.html}
-\item New data file formats
-\item New data structures
-\item New function names
-  \begin{itemize}
-  \item[] {\color{myblue} \smallersize \verb|read.cross()| $\rightarrow$ \verb|read_cross2()|}
-  \item[] {\color{myblue} \smallersize \verb|calc.genoprob()| $\rightarrow$ \verb|calc_genoprob()|}
-  \item[] {\color{myblue} \smallersize \verb|scanone()| $\rightarrow$ \verb|scan1()|}
-  \end{itemize}
-\item Different treatment of intermediate calculations
-\item Use of individual IDs for aligning data
-\item Order of args when subsetting cross objects
-  \begin{itemize}
-  \item[] {\color{myblue} \smallersize \verb|cross[chr,ind]| $\rightarrow$ \verb|cross2[ind,chr]|}
-  \end{itemize}
-\end{itemize} \end{minipage}
-
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-$\boldsymbol{\rightarrow}$ R
-
-\vspace{3cm}
-
-\color{mywhite} \smallsize
-
-\hfill \begin{minipage}[t]{9.5in}
-\begin{itemize}
-\itemsep24pt
-\item \verb|convert2cross2()|
-\item \verb|summary()|, \verb|n_ind()|, \verb|n_mar()|, \dots
-\item \verb|insert_pseudomarkers()|
-\item \verb|calc_genoprob()|
-\item \verb|scan1()|
-\item \verb|find_peaks()|
-\end{itemize} \end{minipage}
 
 
 \newpage
@@ -854,23 +769,6 @@ $$\begin{array}{lllcl@{\qquad}l}
 
 $$\text{cov}(\eta_i, \eta_j) = \sigma^2_p \; (2 k_{ij})$$
 
-
-
-\newpage
-
-\headsize \color{myyellow}
-$\boldsymbol{\rightarrow}$ R
-
-\vspace{3cm}
-
-\color{mywhite} \smallsize
-
-\hfill \begin{minipage}[t]{9.5in}
-\begin{itemize}
-\itemsep24pt
-\item \verb|calc_kinship()|
-\item \verb|scan1()|
-\end{itemize} \end{minipage}
 
 
 
@@ -972,7 +870,7 @@ HS genotype reconstruction
 \headsize \color{myyellow}
 \hfill\begin{minipage}{6.75in}
 \centering
-Genome scans
+HS genome scans
 \end{minipage}
 
 \vspace{5mm}
@@ -981,6 +879,70 @@ Genome scans
 
 
 
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Why R/qtl2?
+\end{minipage}
+
+\vspace{3cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{9.5in}
+\begin{itemize}
+\itemsep24pt
+\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
+\item High-dimensional data
+  \begin{itemize}
+  \item[] {\color{myblue} \smallersize genotypes and phenotypes}
+  \end{itemize}
+\item More diverse crosses
+  \begin{itemize}
+  \item[] {\color{myblue} \smallersize especially multi-parent populations}
+  \end{itemize}
+\item Linear mixed models
+  \begin{itemize}
+  \item[] {\color{myblue} \smallersize especially in HS/AIL}
+  \end{itemize}
+\end{itemize} \end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill\begin{minipage}{5.75in}
+\centering
+R/qtl $\rightarrow$ R/qtl2
+\end{minipage}
+
+\vspace{1cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{9.5in}
+\begin{itemize}
+\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
+\item See
+  \href{http://kbroman.org/qtl2/assets/vignettes/rqtl_diff.html}{\smallestsize
+    \tt kbroman.org/qtl2/assets/vignettes/rqtl\_diff.html}
+\item New data file formats
+\item New data structures
+\item New function names
+  \begin{itemize}
+  \item[] {\color{myblue} \smallersize \verb|read.cross()| $\rightarrow$ \verb|read_cross2()|}
+  \item[] {\color{myblue} \smallersize \verb|calc.genoprob()| $\rightarrow$ \verb|calc_genoprob()|}
+  \item[] {\color{myblue} \smallersize \verb|scanone()| $\rightarrow$ \verb|scan1()|}
+  \end{itemize}
+\item Different treatment of intermediate calculations
+\item Use of individual IDs for aligning data
+\item Order of args when subsetting cross objects
+  \begin{itemize}
+  \item[] {\color{myblue} \smallersize \verb|cross[chr,ind]| $\rightarrow$ \verb|cross2[ind,chr]|}
+  \end{itemize}
+\end{itemize} \end{minipage}
 
 
 \end{document}
