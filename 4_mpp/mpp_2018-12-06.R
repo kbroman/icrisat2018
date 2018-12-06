@@ -173,3 +173,29 @@ g5 <- maxmarg(pr, pmap, 5, 2.296, return_char=TRUE,
              minprob=0.5)
 plot_pxg(g5, arab$pheno[,1], ylab="Bolting days")
 
+# SNP association analysis
+install.packages("qtl2convert", 
+                 repos="http://rqtl.org/qtl2cran")
+library(qtl2convert)
+# snp map as matrix
+snpinfo <- map_list_to_df(arab$pmap, 
+                          marker="snp")
+head(snpinfo)
+# grab founder genotypes
+fg <- do.call("cbind", arab$founder_geno)
+# calculate "strain distribution patterns"
+#  (for each snp)
+sdp <- calc_sdp(t(fg))
+# add it to snp info
+snpinfo <- cbind(snpinfo[names(sdp),], sdp)
+head(snpinfo)
+# find redundant snps
+snpinfo <- index_snps(pmap, snpinfo)
+
+# snp association scan
+out_snps <- scan1snps(pr, pmap, arab$pheno[,1],
+                      snpinfo=snpinfo,
+                      keep_all_snps=TRUE,
+                      cores=0)
+# plot snp association results
+plot(out_snps$lod, out_snps$snpinfo, gap=5)
