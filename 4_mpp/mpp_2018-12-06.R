@@ -111,3 +111,8 @@ gmap <- insert_pseudomarkers(arab$gmap, step=1)
 # interpolate to get corresponding physical map
 pmap <- interp_map(gmap, arab$gmap, arab$pmap)
 
+# calculate genotype probabilities
+pr <- calc_genoprob(arab, gmap, error_prob=0.002,
+                    cores=0)
+
+# plot genotype probabilities for one line, one chr
