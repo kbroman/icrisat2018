@@ -347,19 +347,16 @@ RSkittleBrewer <-
 
 
 
-\begin{frame}[fragile]{Makefile}
+\begin{frame}[fragile]{To build docomentation}
 
 \vspace{24pt}
 
 \begin{lstlisting}
-# build package documentation
-doc:
-  R -e "devtools::document()"
+devtools::document()
 \end{lstlisting}
 
 \note{
-  Here's the {\tt Makefile} I use to build the {\tt .Rd} files: I use
-  the {\tt document()} function within the {\tt devtools} package.
+  To build the documentation, use the devtools function {\tt document()}.
 }
 \end{frame}
 
