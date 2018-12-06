@@ -55,3 +55,4 @@ k <- calc_kinship(pr)
 k_loco <- calc_kinship(pr, "loco")
 
 # use these in scan1() function
+out_lmm <- scan1(pr, sug2$pheno[,1:4], k)
