@@ -146,3 +146,10 @@ abline(h=10.3)
 
 # all significant QTL for all phenotypes
 find_peaks(out, pmap, threshold=10.3, drop=1.5)
+# sort results by position
+find_peaks(out, pmap, threshold=10.3, drop=1.5, sort_by="pos")
+
+# plot all of the peaks
+peaks <- find_peaks(out, pmap, threshold=10.3, drop=1.5, sort_by="pos")
+par(mar=c(5.1, 8.1, 1.1, 1.1)) # adjust margins for the names
+plot_peaks(peaks, pmap)
