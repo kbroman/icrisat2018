@@ -54,5 +54,5 @@ k <- calc_kinship(pr)
 ## kinship matrices by "leave one chromosome out" method (LOCO)
 k_loco <- calc_kinship(pr, "loco")
 
-# use these in scan1() function
-out_lmm <- scan1(pr, sug2$pheno[,1:4], k)
+# use these in scan1() function (cores = 0 means use all CPUs)
+out_lmm <- scan1(pr, sug2$pheno[,1:4], k, cores=0)
