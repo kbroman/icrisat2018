@@ -15,3 +15,6 @@ sug <- read.cross("csv", "http://rqtl.org", "sug.csv",
 
 # convert the data set to R/qtl2 format
 sug2 <- convert2cross2(sug)
+
+# summary functions
+summary(sug2)
