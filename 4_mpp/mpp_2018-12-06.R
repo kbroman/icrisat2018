@@ -12,3 +12,6 @@ library(qtl)
 sug <- read.cross("csv", "http://rqtl.org", "sug.csv",
                   genotypes=c("CC", "CB", "BB"),
                   alleles=c("C", "B"))
+
+# convert the data set to R/qtl2 format
+sug2 <- convert2cross2(sug)
