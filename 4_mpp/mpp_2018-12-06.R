@@ -29,6 +29,7 @@ pr <- calc_genoprob(sug2, gmap)
 
 # do the genome scan (Haley-Knott regression)
 out <- scan1(pr, sug2$pheno[,1:4])  # genome scan on phe 1-4
+head(out) # output is just a matrix
 
-
-
+# plot the LOD curves for the first phenotype
+plot(out, gmap)
