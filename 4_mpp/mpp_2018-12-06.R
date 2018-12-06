@@ -161,3 +161,15 @@ max(out, pmap, chr=4) # at pos 0.301
 g <- maxmarg(pr, pmap, 4, 0.301, return_char=TRUE,
              minprob=0.5)
 g # inferred genotypes
+par(mar=c(5,4,1,1)) # reset margins
+plot_pxg(g, arab$pheno[,1], ylab="Bolting days")
+
+plot(out, pmap)
+
+# repeat for chr 5
+# bolting_days, chr 5
+max(out, pmap, chr=5) # at pos 0.301
+g5 <- maxmarg(pr, pmap, 5, 2.296, return_char=TRUE,
+             minprob=0.5)
+plot_pxg(g5, arab$pheno[,1], ylab="Bolting days")
+
