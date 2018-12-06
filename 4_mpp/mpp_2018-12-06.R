@@ -86,5 +86,5 @@ plot(eff7, gmap, columns=1:3, col=my_colors,
 max(out, gmap, chr=7)  # position with maximum LOD score
 # get inferred genotypes
 g <- maxmarg(pr, gmap, chr=7, pos=47.71, 
-             return_char=TRUE)
-g
+             return_char=TRUE, minprob=0.75)
+g  # output of maxmarg() is BB, CB, CC genotypes
