@@ -27,6 +27,8 @@ n_pheno(sug2)
 gmap <- insert_pseudomarkers(sug2$gmap, step=1)
 pr <- calc_genoprob(sug2, gmap)
 
+# do the genome scan (Haley-Knott regression)
+out <- scan1(pr, sug2$pheno[,1:4])  # genome scan on phe 1-4
 
 
 
