@@ -70,3 +70,9 @@ for(i in 2:4) {
     plot(out_lmm, gmap, col="orchid", add=TRUE, lodcolumn=i)
     plot(out_loco, gmap, col="green3", add=TRUE, lty=2, lodcolumn=i)
 }
+
+# estimating QTL effects
+# chr 7, first phenotype
+eff7 <- scan1coef(pr[,7], sug2$pheno[,1])
+par(mfrow=c(1,1)) # go to back to single panel
+plot(eff7, gmap)
