@@ -131,152 +131,23 @@ Write programs for people, not computers}
 }
 \end{frame}
 
-\begin{frame}[fragile,c]{Break code into small functions}
+\begin{frame}[fragile,c]{Write functions}
 
 \begin{lstlisting}
-get_grid_index <-
-function(vec, step)
+fac2num <-
+function(x)
 {
-  grid <- seq(min(vec), max(vec), by=step)
-  index <- match(grid, vec)
-
-  if(any(is.na(index)))
-    index <- sapply(grid, function(a,b) {
-      d <- abs(a-b)
-      wh <- which(d==min(d))
-      if(length(wh)>1) wh <- sample(wh, 1)
-      wh
-      }, vec)
-
-  index
+    nam <- names(x)
+    x <- as.numeric(as.character(x))
+    names(x) <- nam
+    x
 }
 \end{lstlisting}
 
 
-\note{This is a bit of code that was originally part of a larger
-  function.
-
-  Separated as a function, the code is more likely to be reused. And
-  the smaller and more focused the function, the more likely you'll
-  use it again.
-
-  Avoid having scripts that are long streams of code.
-  Write functions. Give each function a single, focused
-  task. Break long functions into pieces.
-
-  Comment on the input and output; ideally, these
-  are obvious from the names.
-
-  What might be improved about this function?
+\note{If you have little bits of code that you write a lot,
+  make it a function.
 }
-\end{frame}
-
-
-\begin{frame}[fragile,c]{Break code into small functions}
-
-\begin{lstlisting}
-sampleone <-
-function(vec)
-  ifelse(length(vec)==1, vec, sample(vec, 1))
-
-get_grid_index <-
-function(vec, step)
-{
-  grid <- seq(min(vec), max(vec), by=step)
-  index <- match(grid, vec)
-
-  if(any(is.na(index)))
-    index <- sapply(grid, function(a,b) {
-        d <- abs(a-b)
-        sampleone(which(d == min(d)))
-      }, vec)
-
-  index
-}
-\end{lstlisting}
-
-
-\note{Ideally, a function does only one thing.
-
-  Pulling out the {\ttsm sampleone} code as a separate function makes
-  the body of {\ttsm get\_grid\_index} a bit simpler.
-
-  Is the {\ttsm ifelse} line clear? Would it be better to just write
-  that function with {\ttsm if} and {\ttsm else}?
-
-  Could {\ttsm get\_grid\_index} be improved further?
-}
-\end{frame}
-
-
-\begin{frame}[fragile,c]{Clarity over efficiency}
-
-\begin{lstlisting}
-sampleone <-
-function(vec)
-  ifelse(length(vec)==1, vec, sample(vec, 1))
-
-get_grid_index <-
-function(vec, step)
-{
-  grid <- seq(min(vec), max(vec), by=step)
-  index <- match(grid, vec)
-
-  if(any(is.na(index))) {
-    for(i in seq(along=grid)) {
-      d <- abs(grid[i] - vec)
-      index[i] <- sampleone(which(d==min(d)))
-    }
-  }
-
-  index
-}
-\end{lstlisting}
-
-
-\note{The use of {\ttsm sapply} is a bit confusing and hard to
-  follow. I think it's a bit more clear to use a {\ttsm for} loop.
-
-  Whether {\ttsm apply}-type functions are more readable or less
-  readable depends on the complexity of the function that is applied
-  but also on the experience of the reader.
-}
-\end{frame}
-
-
-\begin{frame}[fragile,c]{One last change}
-
-\begin{lstlisting}
-sampleone <-
-function(vec)
-  ifelse(length(vec)==1, vec, sample(vec, 1))
-
-get_grid_index <-
-function(vec, step)
-{
-  grid <- seq(min(vec), max(vec), by=step)
-  index <- match(grid, vec)
-
-  missing <- is.na(index)
-
-  if(any(missing)) {
-    for(i in which(missing)) {
-      d <- abs(grid[i] - vec)
-      index[i] <- sampleone(which(d==min(d)))
-    }
-  }
-
-  index
-}
-\end{lstlisting}
-
-
-\note{One last change: The loop really only needs to be over the parts
-  of {\ttsm index} that are missing.
-
-  Of course, I should also add a comment for each function, to explain
-  the input and output.
-  }
 \end{frame}
 
 
