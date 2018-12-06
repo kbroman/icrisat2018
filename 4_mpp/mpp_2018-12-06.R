@@ -101,5 +101,8 @@ plot_pxg(g, sug2$pheno[,1], SEmult=2,
 ######
 # look at some magic data, in Arabidopsis
 # from https://github.com/rqtl/qtl2data
-
+https://github.com/rqtl/qtl2data
+file <- paste0("https://raw.githubusercontent.com/rqtl/",
+               "qtl2data/master/ArabMAGIC/arabmagic.zip")
+arab <- read_cross2(file)
 
