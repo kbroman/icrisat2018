@@ -106,3 +106,8 @@ file <- paste0("https://raw.githubusercontent.com/rqtl/",
                "qtl2data/master/ArabMAGIC/arabmagic.zip")
 arab <- read_cross2(file)
 
+# insert pseudomarkers
+gmap <- insert_pseudomarkers(arab$gmap, step=1)
+# interpolate to get corresponding physical map
+pmap <- interp_map(gmap, arab$gmap, arab$pmap)
+
