@@ -153,3 +153,11 @@ find_peaks(out, pmap, threshold=10.3, drop=1.5, sort_by="pos")
 peaks <- find_peaks(out, pmap, threshold=10.3, drop=1.5, sort_by="pos")
 par(mar=c(5.1, 8.1, 1.1, 1.1)) # adjust margins for the names
 plot_peaks(peaks, pmap)
+
+# QTL effects
+# bolting_days, chr 4
+max(out, pmap, chr=4) # at pos 0.301
+# get inferred genotypes at that spot
+g <- maxmarg(pr, pmap, 4, 0.301, return_char=TRUE,
+             minprob=0.5)
+g # inferred genotypes
