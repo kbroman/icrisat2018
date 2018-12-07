@@ -243,7 +243,7 @@ plotSmarties()
 
 \begin{frame}[fragile]{Building, installing, and checking}
 
-\vspace{24pt}
+\vspace{8pt}
 
 \begin{lstlisting}
 R CMD build RSkittleBrewer
@@ -259,12 +259,14 @@ R CMD INSTALL --library=~/Rlibs RSkittleBrewer_1.1.tar.gz
 R CMD INSTALL --build RSkittleBrewer_1.1.tar.gz
 \end{lstlisting}
 
-\bigskip
+
 \begin{lstlisting}
 # also consider (within R):
 library(devtools)
-build("/path/to/RSkittleBrewer")
-build("/path/to/RSkittleBrewer", binary=TRUE)
+build()
+build(binary=TRUE)
+install()
+check()
 \end{lstlisting}
 
 \note{
@@ -360,22 +362,6 @@ devtools::document()
 }
 \end{frame}
 
-
-\begin{frame}[fragile]{\tt .Rbuildignore}
-
-\vspace{24pt}
-
-\begin{lstlisting}
-Makefile
-\end{lstlisting}
-
-\note{You'll want to include a {\tt .Rbuildignore} file in your
-  package directory, containing the single line ``{\tt
-    Makefile}''. This tells R about files to {\nhilit not} include
- in the {\tt .tar.gz} file it builds. You'd get complaints from {\tt R
-   CMD check} otherwise.
-}
-\end{frame}
 
 
 \begin{frame}[fragile]{Include a {\tt README} or {\tt README.md} file}
